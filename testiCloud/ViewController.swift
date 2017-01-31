@@ -17,10 +17,15 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+
+        
+        
     }
     
-     private var boundaries = [CLLocationCoordinate2D]()
+    
+    private var boundaries = [CLLocationCoordinate2D]()
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         //If I the file GPX file
         if controller.documentPickerMode == UIDocumentPickerMode.import {
@@ -28,9 +33,15 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 do {
                     //content : read the content of my file
                     let contents = try String(contentsOf: url)
+                    let data = contents.data(using: String.Encoding.utf8)
+                    //print(contents)
+                    //Import an XML document
+                    //guard let url = Bundle.main.url(forResource: "books", withExtension: "xml") else { return }
+                    //guard let xml = XML(contentsOf: contents) else { return }
+                    let myXmlFile = XML2(data: data!)
                     
-        
-                   
+                    print(trkptNode)
+                                       /*
                     func getPolygons() -> [MKPolygon]?{
                         var polyList:[MKPolygon] = [MKPolygon]()
                         boundaries = [CLLocationCoordinate2D]()
@@ -49,16 +60,19 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                         print("Je parse.............")
                         polyList.append(MKPolygon(coordinates: boundaries, count: boundaries.count))
                         
+                        //print("Test : \(polyList[0])")
                         
-                        
+                        for polygon in polyList{
+                            print("Je suis un point : \(polygon)")
+                        }
                         return polyList
                         
                         
                     }
-                    getPolygons()
+                    getPolygons()*/
                 
                     
-                    
+                    /*
                     func parser(parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
                         //Only check for the lines that have a <trkpt> or <wpt> tag. The other lines don't have coordinates and thus don't interest us
                         if elementName == "trkpt" || elementName == "wpt" {
@@ -68,7 +82,9 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                             print(lat)
                             boundaries.append(CLLocationCoordinate2DMake(CLLocationDegrees(lat)!, CLLocationDegrees(lon)!))
                         }
-                    }
+                    }*/
+                    
+                    
                     
                     
                 } catch {

@@ -21,6 +21,7 @@
 		1754773C1E39EB3B00536B68 /* testiCloudTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754773B1E39EB3B00536B68 /* testiCloudTests.swift */; };
 		175477471E39EB3B00536B68 /* testiCloudUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477461E39EB3B00536B68 /* testiCloudUITests.swift */; };
 		175477571E39F61900536B68 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175477561E39F61900536B68 /* CloudKit.framework */; };
+		178FAC481E40EDB5002E6DEB /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC471E40EDB5002E6DEB /* XMLParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		175477481E39EB3B00536B68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		175477541E39EDCF00536B68 /* testiCloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testiCloud.entitlements; sourceTree = "<group>"; };
 		175477561E39F61900536B68 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		178FAC471E40EDB5002E6DEB /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				172353D11E40996A0099F29A /* Parser.swift */,
 				172353D21E40996A0099F29A /* SwiftyXMLParser.h */,
 				172353D31E40996A0099F29A /* XML.swift */,
+				178FAC471E40EDB5002E6DEB /* XMLParser.swift */,
 				175477231E39EB3B00536B68 /* AppDelegate.swift */,
 				175477251E39EB3B00536B68 /* ViewController.swift */,
 				175477271E39EB3B00536B68 /* Main.storyboard */,
@@ -306,6 +309,7 @@
 			files = (
 				175477261E39EB3B00536B68 /* ViewController.swift in Sources */,
 				172353D41E40996A0099F29A /* Accessor.swift in Sources */,
+				178FAC481E40EDB5002E6DEB /* XMLParser.swift in Sources */,
 				172353D61E40996A0099F29A /* Error.swift in Sources */,
 				172353D51E40996A0099F29A /* Element.swift in Sources */,
 				175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */,
