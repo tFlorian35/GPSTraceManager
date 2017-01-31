@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		172353D41E40996A0099F29A /* Accessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172353CE1E40996A0099F29A /* Accessor.swift */; };
-		172353D51E40996A0099F29A /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172353CF1E40996A0099F29A /* Element.swift */; };
-		172353D61E40996A0099F29A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172353D01E40996A0099F29A /* Error.swift */; };
-		172353D71E40996A0099F29A /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172353D11E40996A0099F29A /* Parser.swift */; };
-		172353D81E40996A0099F29A /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172353D31E40996A0099F29A /* XML.swift */; };
 		175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477231E39EB3B00536B68 /* AppDelegate.swift */; };
 		175477261E39EB3B00536B68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477251E39EB3B00536B68 /* ViewController.swift */; };
 		175477291E39EB3B00536B68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175477271E39EB3B00536B68 /* Main.storyboard */; };
@@ -21,7 +16,11 @@
 		1754773C1E39EB3B00536B68 /* testiCloudTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754773B1E39EB3B00536B68 /* testiCloudTests.swift */; };
 		175477471E39EB3B00536B68 /* testiCloudUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477461E39EB3B00536B68 /* testiCloudUITests.swift */; };
 		175477571E39F61900536B68 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175477561E39F61900536B68 /* CloudKit.framework */; };
-		178FAC481E40EDB5002E6DEB /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC471E40EDB5002E6DEB /* XMLParser.swift */; };
+		178FAC4F1E40F7F0002E6DEB /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4A1E40F7F0002E6DEB /* Document.swift */; };
+		178FAC501E40F7F0002E6DEB /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4B1E40F7F0002E6DEB /* Element.swift */; };
+		178FAC511E40F7F0002E6DEB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4C1E40F7F0002E6DEB /* Error.swift */; };
+		178FAC521E40F7F0002E6DEB /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4D1E40F7F0002E6DEB /* Options.swift */; };
+		178FAC531E40F7F0002E6DEB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4E1E40F7F0002E6DEB /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		172353CE1E40996A0099F29A /* Accessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessor.swift; sourceTree = "<group>"; };
-		172353CF1E40996A0099F29A /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
-		172353D01E40996A0099F29A /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		172353D11E40996A0099F29A /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		172353D21E40996A0099F29A /* SwiftyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyXMLParser.h; sourceTree = "<group>"; };
-		172353D31E40996A0099F29A /* XML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XML.swift; sourceTree = "<group>"; };
 		175477201E39EB3A00536B68 /* testiCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testiCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		175477231E39EB3B00536B68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		175477251E39EB3B00536B68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +57,12 @@
 		175477481E39EB3B00536B68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		175477541E39EDCF00536B68 /* testiCloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testiCloud.entitlements; sourceTree = "<group>"; };
 		175477561E39F61900536B68 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		178FAC471E40EDB5002E6DEB /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
+		178FAC491E40F7F0002E6DEB /* AEXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEXML.h; path = "../../AEXML-master/Sources/AEXML.h"; sourceTree = "<group>"; };
+		178FAC4A1E40F7F0002E6DEB /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Document.swift; path = "../../AEXML-master/Sources/Document.swift"; sourceTree = "<group>"; };
+		178FAC4B1E40F7F0002E6DEB /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Element.swift; path = "../../AEXML-master/Sources/Element.swift"; sourceTree = "<group>"; };
+		178FAC4C1E40F7F0002E6DEB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = "../../AEXML-master/Sources/Error.swift"; sourceTree = "<group>"; };
+		178FAC4D1E40F7F0002E6DEB /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Options.swift; path = "../../AEXML-master/Sources/Options.swift"; sourceTree = "<group>"; };
+		178FAC4E1E40F7F0002E6DEB /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = "../../AEXML-master/Sources/Parser.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,13 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				175477541E39EDCF00536B68 /* testiCloud.entitlements */,
-				172353CE1E40996A0099F29A /* Accessor.swift */,
-				172353CF1E40996A0099F29A /* Element.swift */,
-				172353D01E40996A0099F29A /* Error.swift */,
-				172353D11E40996A0099F29A /* Parser.swift */,
-				172353D21E40996A0099F29A /* SwiftyXMLParser.h */,
-				172353D31E40996A0099F29A /* XML.swift */,
-				178FAC471E40EDB5002E6DEB /* XMLParser.swift */,
+				178FAC491E40F7F0002E6DEB /* AEXML.h */,
+				178FAC4A1E40F7F0002E6DEB /* Document.swift */,
+				178FAC4B1E40F7F0002E6DEB /* Element.swift */,
+				178FAC4C1E40F7F0002E6DEB /* Error.swift */,
+				178FAC4D1E40F7F0002E6DEB /* Options.swift */,
+				178FAC4E1E40F7F0002E6DEB /* Parser.swift */,
 				175477231E39EB3B00536B68 /* AppDelegate.swift */,
 				175477251E39EB3B00536B68 /* ViewController.swift */,
 				175477271E39EB3B00536B68 /* Main.storyboard */,
@@ -307,15 +304,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178FAC4F1E40F7F0002E6DEB /* Document.swift in Sources */,
 				175477261E39EB3B00536B68 /* ViewController.swift in Sources */,
-				172353D41E40996A0099F29A /* Accessor.swift in Sources */,
-				178FAC481E40EDB5002E6DEB /* XMLParser.swift in Sources */,
-				172353D61E40996A0099F29A /* Error.swift in Sources */,
-				172353D51E40996A0099F29A /* Element.swift in Sources */,
 				175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */,
-				172353D71E40996A0099F29A /* Parser.swift in Sources */,
 				1754772C1E39EB3B00536B68 /* testiCloud.xcdatamodeld in Sources */,
-				172353D81E40996A0099F29A /* XML.swift in Sources */,
+				178FAC531E40F7F0002E6DEB /* Parser.swift in Sources */,
+				178FAC511E40F7F0002E6DEB /* Error.swift in Sources */,
+				178FAC501E40F7F0002E6DEB /* Element.swift in Sources */,
+				178FAC521E40F7F0002E6DEB /* Options.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
