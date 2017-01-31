@@ -34,58 +34,41 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                     //content : read the content of my file
                     let contents = try String(contentsOf: url)
                     let data = contents.data(using: String.Encoding.utf8)
-                    //print(contents)
-                    //Import an XML document
-                    //guard let url = Bundle.main.url(forResource: "books", withExtension: "xml") else { return }
-                    //guard let xml = XML(contentsOf: contents) else { return }
-                    let myXmlFile = XML2(data: data!)
                     
-                    print(trkptNode)
-                                       /*
-                    func getPolygons() -> [MKPolygon]?{
-                        var polyList:[MKPolygon] = [MKPolygon]()
-                        boundaries = [CLLocationCoordinate2D]()
-                        let filePath = myFileUrl
-                        if filePath == nil {
-                            print ("Impossible d'accéder au fichier")
-                
-                        }
-                        let data = contents.data(using: String.Encoding.utf8)
-                        let parser = XMLParser(data: data!)
-                        let success = parser.parse()
+                    do {
+                        let xmlDoc = try AEXMLDocument(xml: data!)
                         
-                        if !success{
-                            print("Impossible de parser le fichier GPX")
-                        }
-                        print("Je parse.............")
-                        polyList.append(MKPolygon(coordinates: boundaries, count: boundaries.count))
+                     
+                        print("-----------------------------------")
                         
-                        //print("Test : \(polyList[0])")
-                        
-                        for polygon in polyList{
-                            print("Je suis un point : \(polygon)")
+                    
+                      
+                        var nb = xmlDoc.root["trk"]["trkseg"]["trkpt"].count
+                    
+                        print(nb)
+                        for trkpt in xmlDoc.root["trk"]["trkseg"].children{
+                            //print(xmlDoc.root["trk"]["trkseg"]["trkpt"].attributes!)
+                            //print(xmlDoc.root["trk"]["trkseg"]["trkpt"].attributes["lon"]!)
+                            for i in 0...nb{
+                                print(xmlDoc.root["trk"]["trkseg"].children[i].attributes["lat"]!)
+                                print(xmlDoc.root["trk"]["trkseg"].children[i].attributes["lon"]!)
+                            }
                         }
-                        return polyList
+                        
+                     
+                        
+                        
+                        
+                        
+                        
+                        
+                        print("-----------------------------------")
                         
                         
                     }
-                    getPolygons()*/
-                
-                    
-                    /*
-                    func parser(parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-                        //Only check for the lines that have a <trkpt> or <wpt> tag. The other lines don't have coordinates and thus don't interest us
-                        if elementName == "trkpt" || elementName == "wpt" {
-                            //Create a World map coordinate from the file
-                            let lat = attributeDict["lat"]!
-                            let lon = attributeDict["lon"]!
-                            print(lat)
-                            boundaries.append(CLLocationCoordinate2DMake(CLLocationDegrees(lat)!, CLLocationDegrees(lon)!))
-                        }
-                    }*/
-                    
-                    
-                    
+                    catch {
+                        print("\(error)")
+                    }
                     
                 } catch {
                     //content could not be loaded
