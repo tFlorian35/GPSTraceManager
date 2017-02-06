@@ -11,12 +11,22 @@ import MapKit
 import CloudKit
 import Foundation
 
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let pr = MKPolylineRenderer(overlay: overlay);
+        pr.strokeColor = UIColor.red
+        pr.lineWidth = 10;
+        return pr;
+    }
+}
 
-class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate {
+
+class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, UIAlertViewDelegate{
+    
+    
+    
     let locationManager = CLLocationManager()
     @IBOutlet weak var displayMap: MKMapView!
-    
-    
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     
@@ -24,7 +34,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //SetUp Location manager
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
@@ -33,13 +43,12 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         //Loader
         loader.stopAnimating()
         loader.hidesWhenStopped = true
-        
-    
+       
     }
    
     private var boundaries = [CLLocationCoordinate2D]()
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        //If I the file GPX file
+        //If it is a .gpx file
         var traces = [CLLocationCoordinate2D]()
         if controller.documentPickerMode == UIDocumentPickerMode.import {
             let myFileUrl = url
@@ -58,11 +67,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                             let lat = Double(trkpt.attributes["lat"]!)
                             let lon = Double(trkpt.attributes["lon"]!)
                             traces.append(CLLocationCoordinate2D(latitude: lat!, longitude: lon!))
-                            
-                            
-                            
-                            
-                            
                         }
                         
                     }
@@ -75,58 +79,35 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                     
                 
                 }
-            
+            //Create a point for each line of traces[] (tab of CLLocationCoordinates2D)
             for point in traces{
+                
                 loader.stopAnimating()
                 loader.hidesWhenStopped = true
-                
-                //print("Je suis une trace \(point)")
-                var anotation = MKPointAnnotation()
+             
+                let anotation = MKPointAnnotation()
                 anotation.coordinate = point
-                self.displayMap.addAnnotation(anotation)
-
-                
-                var geodesic = MKGeodesicPolyline(coordinates: traces, count: traces.count)
-                displayMap.add(geodesic)
-                
-                
-                //Ajouter chaque annotation dans la base
-                
+            
+                /************
+                Ajout de chaque anotation a la BDD
+                *************/
             }
-            func createPolyline(mapView: MKMapView)->MKPolylineRenderer {
-                
-                var polyline = MKPolyline(coordinates: traces, count: traces.count)
-                self.displayMap.add(polyline)
-            
-                
-                let renderer = MKPolylineRenderer(polyline:polyline)
-                renderer.lineWidth = 3.0
-                renderer.alpha = 0.5
-                renderer.strokeColor = UIColor.blue
-                let span = MKCoordinateSpanMake(0.01, 0.01)
-                let region = MKCoordinateRegion(center: traces[1], span: span)
-                self.displayMap.setRegion(region, animated: true)
-                
-              
-            
-                return renderer
+            //Trace the route when the .gpx file is loaded
+            func traceRoute(coordinates: [CLLocationCoordinate2D]) {
+                let polyLine = MKPolyline(coordinates: traces, count: traces.count)
+                self.displayMap.add(polyLine, level: MKOverlayLevel.aboveRoads)
+                displayMap.delegate = self
             }
-            
-            
-            createPolyline(mapView: displayMap)
-            
-            
-            
-            
-            //print("L'url de mon fichier est \(myFileUrl)")
-            
+            traceRoute(coordinates: traces)
         }
+        
     }
+    
+    
 
   
     @IBAction func `import` (_ sender: Any) {
-        print("OKOK33")
-
+       
         let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: ["public.xml"], in: UIDocumentPickerMode.import)
     
         documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
