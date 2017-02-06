@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1746954B1E48B8C700F8E623 /* documentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746954A1E48B8C700F8E623 /* documentPicker.swift */; };
 		175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477231E39EB3B00536B68 /* AppDelegate.swift */; };
 		175477261E39EB3B00536B68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477251E39EB3B00536B68 /* ViewController.swift */; };
 		175477291E39EB3B00536B68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175477271E39EB3B00536B68 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1746954A1E48B8C700F8E623 /* documentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = documentPicker.swift; sourceTree = "<group>"; };
 		175477201E39EB3A00536B68 /* testiCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testiCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		175477231E39EB3B00536B68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		175477251E39EB3B00536B68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				17AEE1FA1E48818500B4A3C9 /* Options.swift */,
 				17AEE1FB1E48818500B4A3C9 /* Parser.swift */,
 				175477251E39EB3B00536B68 /* ViewController.swift */,
+				1746954A1E48B8C700F8E623 /* documentPicker.swift */,
 				175477271E39EB3B00536B68 /* Main.storyboard */,
 				1754772D1E39EB3B00536B68 /* Assets.xcassets */,
 				1754772F1E39EB3B00536B68 /* LaunchScreen.storyboard */,
@@ -308,6 +311,7 @@
 				175477261E39EB3B00536B68 /* ViewController.swift in Sources */,
 				175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */,
 				1754772C1E39EB3B00536B68 /* testiCloud.xcdatamodeld in Sources */,
+				1746954B1E48B8C700F8E623 /* documentPicker.swift in Sources */,
 				17AEE2001E48818500B4A3C9 /* Parser.swift in Sources */,
 				17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */,
 				17AEE1FD1E48818500B4A3C9 /* Element.swift in Sources */,

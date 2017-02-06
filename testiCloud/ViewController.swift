@@ -12,9 +12,13 @@ import CloudKit
 import Foundation
 
 
-class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate {
     let locationManager = CLLocationManager()
     @IBOutlet weak var displayMap: MKMapView!
+    
+    
+    @IBOutlet weak var loader: UIActivityIndicatorView!
+    
     
     
     override func viewDidLoad() {
@@ -25,6 +29,10 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
+        
+        //Loader
+        loader.stopAnimating()
+        loader.hidesWhenStopped = true
         
     
     }
@@ -69,6 +77,9 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 }
             
             for point in traces{
+                loader.stopAnimating()
+                loader.hidesWhenStopped = true
+                
                 print("Je suis une trace \(point)")
                 var anotation = MKPointAnnotation()
                 anotation.coordinate = point
@@ -78,8 +89,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 var geodesic = MKGeodesicPolyline(coordinates: traces, count: traces.count)
                 displayMap.add(geodesic)
                 
-                
-    
                 
                 //Ajouter chaque annotation dans la base
                 
@@ -123,6 +132,36 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         self.present(documentPicker, animated: true, completion: nil)
         documentPicker.delegate = self
+        
+        loader.startAnimating()
+        
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        loader.stopAnimating()
+        
+        
+        
+        let alertController = UIAlertController(title: "Annuler ?", message: "Voulez vous annuler l'import ?", preferredStyle: UIAlertControllerStyle.alert)
+        let DestructiveAction = UIAlertAction(title: "Annuler", style: UIAlertActionStyle.destructive) {
+            (result : UIAlertAction) -> Void in
+            print("Destructive")
+        }
+        
+        let okAction = UIAlertAction(title: "Impotrer une trace", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            print("Continuer")
+            
+        }
+        
+        alertController.addAction(DestructiveAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+       
+        
+        
+        
         
     }
   
