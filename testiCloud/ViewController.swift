@@ -50,8 +50,10 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                             let lat = Double(trkpt.attributes["lat"]!)
                             let lon = Double(trkpt.attributes["lon"]!)
                             traces.append(CLLocationCoordinate2D(latitude: lat!, longitude: lon!))
-                            var point = MKPointAnnotation()
-                            point.traces = traces
+                            
+                            
+                            
+                            
                             
                         }
                         
@@ -66,7 +68,14 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 
                 }
             
-            
+            for point in traces{
+                print("Je suis une trace \(point)")
+                var anotation = MKPointAnnotation()
+                anotation.coordinate = point
+                self.displayMap.addAnnotation(anotation)
+                //Ajouter chaque annotation dans la base 
+                
+            }
             
             
             //print("L'url de mon fichier est \(myFileUrl)")
