@@ -12,58 +12,46 @@ import CloudKit
 import Foundation
 
 
-
-class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate {
-
+class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
+    let locationManager = CLLocationManager()
+    @IBOutlet weak var displayMap: MKMapView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
         
-        
-    }
     
+    }
+   
     
     private var boundaries = [CLLocationCoordinate2D]()
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         //If I the file GPX file
+        var traces = [CLLocationCoordinate2D]()
         if controller.documentPickerMode == UIDocumentPickerMode.import {
             let myFileUrl = url
                 do {
-                    //content : read the content of my file
+                    //contents : contenu de mon fichier
                     let contents = try String(contentsOf: url)
                     let data = contents.data(using: String.Encoding.utf8)
                     
                     do {
                         let xmlDoc = try AEXMLDocument(xml: data!)
-                        
-                     
-                        print("-----------------------------------")
-                        
-                    
-                      
-                        var nb = xmlDoc.root["trk"]["trkseg"]["trkpt"].count
-                    
+                        let nb = (xmlDoc.root["trk"]["trkseg"]["trkpt"].count)
                         print(nb)
+                        
+                        //Création du tableau de CLLocationCoordinates2D traces
                         for trkpt in xmlDoc.root["trk"]["trkseg"].children{
-                            //print(xmlDoc.root["trk"]["trkseg"]["trkpt"].attributes!)
-                            //print(xmlDoc.root["trk"]["trkseg"]["trkpt"].attributes["lon"]!)
-                            for i in 0...nb{
-                                print(xmlDoc.root["trk"]["trkseg"].children[i].attributes["lat"]!)
-                                print(xmlDoc.root["trk"]["trkseg"].children[i].attributes["lon"]!)
-                            }
+                            let lat = Double(trkpt.attributes["lat"]!)
+                            let lon = Double(trkpt.attributes["lon"]!)
+                            traces.append(CLLocationCoordinate2D(latitude: lat!, longitude: lon!))
                         }
-                        
-                     
-                        
-                        
-                        
-                        
-                        
-                        
-                        print("-----------------------------------")
-                        
                         
                     }
                     catch {
@@ -71,7 +59,9 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                     }
                     
                 } catch {
-                    //content could not be loaded
+                    //Le contenu ne peut pas être chargé 
+                    
+                
                 }
             
             
