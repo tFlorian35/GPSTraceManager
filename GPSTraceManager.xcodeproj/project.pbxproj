@@ -43,7 +43,7 @@
 
 /* Begin PBXFileReference section */
 		1746954A1E48B8C700F8E623 /* documentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = documentPicker.swift; sourceTree = "<group>"; };
-		175477201E39EB3A00536B68 /* testiCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testiCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		175477201E39EB3A00536B68 /* GPSTraceManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSTraceManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		175477231E39EB3B00536B68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		175477251E39EB3B00536B68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		175477281E39EB3B00536B68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,10 +51,10 @@
 		1754772D1E39EB3B00536B68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		175477301E39EB3B00536B68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		175477321E39EB3B00536B68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		175477371E39EB3B00536B68 /* testiCloudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testiCloudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		175477371E39EB3B00536B68 /* GPSTraceManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSTraceManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1754773B1E39EB3B00536B68 /* testiCloudTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testiCloudTests.swift; sourceTree = "<group>"; };
 		1754773D1E39EB3B00536B68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		175477421E39EB3B00536B68 /* testiCloudUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testiCloudUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		175477421E39EB3B00536B68 /* GPSTraceManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSTraceManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		175477461E39EB3B00536B68 /* testiCloudUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testiCloudUITests.swift; sourceTree = "<group>"; };
 		175477481E39EB3B00536B68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		175477541E39EDCF00536B68 /* testiCloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testiCloud.entitlements; sourceTree = "<group>"; };
@@ -107,9 +107,9 @@
 		175477211E39EB3A00536B68 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				175477201E39EB3A00536B68 /* testiCloud.app */,
-				175477371E39EB3B00536B68 /* testiCloudTests.xctest */,
-				175477421E39EB3B00536B68 /* testiCloudUITests.xctest */,
+				175477201E39EB3A00536B68 /* GPSTraceManager.app */,
+				175477371E39EB3B00536B68 /* GPSTraceManagerTests.xctest */,
+				175477421E39EB3B00536B68 /* GPSTraceManagerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,9 +165,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1754771F1E39EB3A00536B68 /* testiCloud */ = {
+		1754771F1E39EB3A00536B68 /* GPSTraceManager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1754774B1E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "testiCloud" */;
+			buildConfigurationList = 1754774B1E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "GPSTraceManager" */;
 			buildPhases = (
 				1754771C1E39EB3A00536B68 /* Sources */,
 				1754771D1E39EB3A00536B68 /* Frameworks */,
@@ -177,14 +177,14 @@
 			);
 			dependencies = (
 			);
-			name = testiCloud;
+			name = GPSTraceManager;
 			productName = testiCloud;
-			productReference = 175477201E39EB3A00536B68 /* testiCloud.app */;
+			productReference = 175477201E39EB3A00536B68 /* GPSTraceManager.app */;
 			productType = "com.apple.product-type.application";
 		};
-		175477361E39EB3B00536B68 /* testiCloudTests */ = {
+		175477361E39EB3B00536B68 /* GPSTraceManagerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1754774E1E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "testiCloudTests" */;
+			buildConfigurationList = 1754774E1E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "GPSTraceManagerTests" */;
 			buildPhases = (
 				175477331E39EB3B00536B68 /* Sources */,
 				175477341E39EB3B00536B68 /* Frameworks */,
@@ -195,14 +195,14 @@
 			dependencies = (
 				175477391E39EB3B00536B68 /* PBXTargetDependency */,
 			);
-			name = testiCloudTests;
+			name = GPSTraceManagerTests;
 			productName = testiCloudTests;
-			productReference = 175477371E39EB3B00536B68 /* testiCloudTests.xctest */;
+			productReference = 175477371E39EB3B00536B68 /* GPSTraceManagerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		175477411E39EB3B00536B68 /* testiCloudUITests */ = {
+		175477411E39EB3B00536B68 /* GPSTraceManagerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 175477511E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "testiCloudUITests" */;
+			buildConfigurationList = 175477511E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "GPSTraceManagerUITests" */;
 			buildPhases = (
 				1754773E1E39EB3B00536B68 /* Sources */,
 				1754773F1E39EB3B00536B68 /* Frameworks */,
@@ -213,9 +213,9 @@
 			dependencies = (
 				175477441E39EB3B00536B68 /* PBXTargetDependency */,
 			);
-			name = testiCloudUITests;
+			name = GPSTraceManagerUITests;
 			productName = testiCloudUITests;
-			productReference = 175477421E39EB3B00536B68 /* testiCloudUITests.xctest */;
+			productReference = 175477421E39EB3B00536B68 /* GPSTraceManagerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -255,7 +255,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1754771B1E39EB3A00536B68 /* Build configuration list for PBXProject "testiCloud" */;
+			buildConfigurationList = 1754771B1E39EB3A00536B68 /* Build configuration list for PBXProject "GPSTraceManager" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -268,9 +268,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1754771F1E39EB3A00536B68 /* testiCloud */,
-				175477361E39EB3B00536B68 /* testiCloudTests */,
-				175477411E39EB3B00536B68 /* testiCloudUITests */,
+				1754771F1E39EB3A00536B68 /* GPSTraceManager */,
+				175477361E39EB3B00536B68 /* GPSTraceManagerTests */,
+				175477411E39EB3B00536B68 /* GPSTraceManagerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -340,12 +340,12 @@
 /* Begin PBXTargetDependency section */
 		175477391E39EB3B00536B68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1754771F1E39EB3A00536B68 /* testiCloud */;
+			target = 1754771F1E39EB3A00536B68 /* GPSTraceManager */;
 			targetProxy = 175477381E39EB3B00536B68 /* PBXContainerItemProxy */;
 		};
 		175477441E39EB3B00536B68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1754771F1E39EB3A00536B68 /* testiCloud */;
+			target = 1754771F1E39EB3A00536B68 /* GPSTraceManager */;
 			targetProxy = 175477431E39EB3B00536B68 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -500,7 +500,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.floriantonnelier.testiCloudTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testiCloud.app/testiCloud";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSTraceManager.app/GPSTraceManager";
 			};
 			name = Debug;
 		};
@@ -515,7 +515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.floriantonnelier.testiCloudTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testiCloud.app/testiCloud";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSTraceManager.app/GPSTraceManager";
 			};
 			name = Release;
 		};
@@ -550,7 +550,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1754771B1E39EB3A00536B68 /* Build configuration list for PBXProject "testiCloud" */ = {
+		1754771B1E39EB3A00536B68 /* Build configuration list for PBXProject "GPSTraceManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				175477491E39EB3B00536B68 /* Debug */,
@@ -559,7 +559,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1754774B1E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "testiCloud" */ = {
+		1754774B1E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "GPSTraceManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1754774C1E39EB3B00536B68 /* Debug */,
@@ -568,7 +568,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1754774E1E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "testiCloudTests" */ = {
+		1754774E1E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "GPSTraceManagerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1754774F1E39EB3B00536B68 /* Debug */,
@@ -577,7 +577,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		175477511E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "testiCloudUITests" */ = {
+		175477511E39EB3B00536B68 /* Build configuration list for PBXNativeTarget "GPSTraceManagerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				175477521E39EB3B00536B68 /* Debug */,

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1754771F1E39EB3A00536B68"
-               BuildableName = "testiCloud.app"
-               BlueprintName = "testiCloud"
-               ReferencedContainer = "container:testiCloud.xcodeproj">
+               BuildableName = "GPSTraceManager.app"
+               BlueprintName = "GPSTraceManager"
+               ReferencedContainer = "container:GPSTraceManager.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "175477361E39EB3B00536B68"
-               BuildableName = "testiCloudTests.xctest"
-               BlueprintName = "testiCloudTests"
-               ReferencedContainer = "container:testiCloud.xcodeproj">
+               BuildableName = "GPSTraceManagerTests.xctest"
+               BlueprintName = "GPSTraceManagerTests"
+               ReferencedContainer = "container:GPSTraceManager.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "175477411E39EB3B00536B68"
-               BuildableName = "testiCloudUITests.xctest"
-               BlueprintName = "testiCloudUITests"
-               ReferencedContainer = "container:testiCloud.xcodeproj">
+               BuildableName = "GPSTraceManagerUITests.xctest"
+               BlueprintName = "GPSTraceManagerUITests"
+               ReferencedContainer = "container:GPSTraceManager.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1754771F1E39EB3A00536B68"
-            BuildableName = "testiCloud.app"
-            BlueprintName = "testiCloud"
-            ReferencedContainer = "container:testiCloud.xcodeproj">
+            BuildableName = "GPSTraceManager.app"
+            BlueprintName = "GPSTraceManager"
+            ReferencedContainer = "container:GPSTraceManager.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1754771F1E39EB3A00536B68"
-            BuildableName = "testiCloud.app"
-            BlueprintName = "testiCloud"
-            ReferencedContainer = "container:testiCloud.xcodeproj">
+            BuildableName = "GPSTraceManager.app"
+            BlueprintName = "GPSTraceManager"
+            ReferencedContainer = "container:GPSTraceManager.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1754771F1E39EB3A00536B68"
-            BuildableName = "testiCloud.app"
-            BlueprintName = "testiCloud"
-            ReferencedContainer = "container:testiCloud.xcodeproj">
+            BuildableName = "GPSTraceManager.app"
+            BlueprintName = "GPSTraceManager"
+            ReferencedContainer = "container:GPSTraceManager.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
