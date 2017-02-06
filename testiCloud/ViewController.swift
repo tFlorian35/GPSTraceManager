@@ -80,7 +80,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 loader.stopAnimating()
                 loader.hidesWhenStopped = true
                 
-                print("Je suis une trace \(point)")
+                //print("Je suis une trace \(point)")
                 var anotation = MKPointAnnotation()
                 anotation.coordinate = point
                 self.displayMap.addAnnotation(anotation)
@@ -124,7 +124,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     }
 
   
-    @IBAction func `import`(_ sender: Any) {
+    @IBAction func `import` (_ sender: Any) {
         print("OKOK33")
 
         let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: ["public.xml"], in: UIDocumentPickerMode.import)
@@ -151,7 +151,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         let okAction = UIAlertAction(title: "Impotrer une trace", style: UIAlertActionStyle.default) {
             (result : UIAlertAction) -> Void in
             print("Continuer")
-            
+            self.`import`(Any)
         }
         
         alertController.addAction(DestructiveAction)
