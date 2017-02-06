@@ -82,9 +82,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
             //Create a point for each line of traces[] (tab of CLLocationCoordinates2D)
             for point in traces{
                 
-                loader.stopAnimating()
-                loader.hidesWhenStopped = true
-             
                 let anotation = MKPointAnnotation()
                 anotation.coordinate = point
             
@@ -99,6 +96,11 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 displayMap.delegate = self
             }
             traceRoute(coordinates: traces)
+            loader.stopAnimating()
+            loader.hidesWhenStopped = true
+            /************
+             Zoomer sur le point du milieu de trace
+             *************/
         }
         
     }
