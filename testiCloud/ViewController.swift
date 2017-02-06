@@ -73,9 +73,40 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 var anotation = MKPointAnnotation()
                 anotation.coordinate = point
                 self.displayMap.addAnnotation(anotation)
-                //Ajouter chaque annotation dans la base 
+
+                
+                var geodesic = MKGeodesicPolyline(coordinates: traces, count: traces.count)
+                displayMap.add(geodesic)
+                
+                
+    
+                
+                //Ajouter chaque annotation dans la base
                 
             }
+            func createPolyline(mapView: MKMapView)->MKPolylineRenderer {
+                
+                var polyline = MKPolyline(coordinates: traces, count: traces.count)
+                self.displayMap.add(polyline)
+            
+                
+                let renderer = MKPolylineRenderer(polyline:polyline)
+                renderer.lineWidth = 3.0
+                renderer.alpha = 0.5
+                renderer.strokeColor = UIColor.blue
+                let span = MKCoordinateSpanMake(0.01, 0.01)
+                let region = MKCoordinateRegion(center: traces[1], span: span)
+                self.displayMap.setRegion(region, animated: true)
+                
+              
+            
+                return renderer
+            }
+            
+            
+            createPolyline(mapView: displayMap)
+            
+            
             
             
             //print("L'url de mon fichier est \(myFileUrl)")
