@@ -1,7 +1,7 @@
 //
-// Error.swift
+// AEXML.h
 //
-// Copyright (c) 2014-2016 Marko Tadić <tadija@me.com> http://tadija.net
+// Copyright (c) 2014 Marko Tadić <tadija@me.com> http://tadija.net
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,16 +22,8 @@
 // SOFTWARE.
 //
 
-import Foundation
+#import <Foundation/Foundation.h>
 
-/// A type representing error value that can be thrown or inside `error` property of `AEXMLElement`.
-public enum AEXMLError: Error {
-    /// This will be inside `error` property of `AEXMLElement` when subscript is used for not-existing element.
-    case elementNotFound
-    
-    /// This will be inside `error` property of `AEXMLDocument` when there is no root element.
-    case rootElementMissing
-    
-    /// `AEXMLDocument` can throw this error on `init` or `loadXMLData` if parsing with `XMLParser` was not successful.
-    case parsingFailed
-}
+FOUNDATION_EXPORT double AEXMLVersionNumber;
+FOUNDATION_EXPORT const unsigned char AEXMLVersionString[];
+

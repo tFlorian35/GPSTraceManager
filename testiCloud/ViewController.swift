@@ -11,88 +11,135 @@ import MapKit
 import CloudKit
 import Foundation
 
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let pr = MKPolylineRenderer(overlay: overlay);
+        pr.strokeColor = UIColor.red
+        pr.lineWidth = 10;
+        return pr;
+    }
+}
 
 
-class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate {
-
+class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, UIAlertViewDelegate{
+    
+    
+    
+    let locationManager = CLLocationManager()
+    @IBOutlet weak var displayMap: MKMapView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //SetUp Location manager
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        
+        //Loader
+        loader.stopAnimating()
+        loader.hidesWhenStopped = true
+       
     }
-    
-     private var boundaries = [CLLocationCoordinate2D]()
+   
+    private var boundaries = [CLLocationCoordinate2D]()
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        //If I the file GPX file
+        //If it is a .gpx file
+        var traces = [CLLocationCoordinate2D]()
         if controller.documentPickerMode == UIDocumentPickerMode.import {
             let myFileUrl = url
                 do {
-                    //content : read the content of my file
+                    //contents : contenu de mon fichier
                     let contents = try String(contentsOf: url)
+                    let data = contents.data(using: String.Encoding.utf8)
                     
-        
-                   
-                    func getPolygons() -> [MKPolygon]?{
-                        var polyList:[MKPolygon] = [MKPolygon]()
-                        boundaries = [CLLocationCoordinate2D]()
-                        let filePath = myFileUrl
-                        if filePath == nil {
-                            print ("Impossible d'accéder au fichier")
-                
+                    do {
+                        let xmlDoc = try AEXMLDocument(xml: data!)
+                        let nb = (xmlDoc.root["trk"]["trkseg"]["trkpt"].count)
+                        print(nb)
+                        
+                        //Création du tableau de CLLocationCoordinates2D traces
+                        for trkpt in xmlDoc.root["trk"]["trkseg"].children{
+                            let lat = Double(trkpt.attributes["lat"]!)
+                            let lon = Double(trkpt.attributes["lon"]!)
+                            traces.append(CLLocationCoordinate2D(latitude: lat!, longitude: lon!))
                         }
-                        let data = contents.data(using: String.Encoding.utf8)
-                        let parser = XMLParser(data: data!)
-                        let success = parser.parse()
-                        
-                        if !success{
-                            print("Impossible de parser le fichier GPX")
-                        }
-                        print("Je parse.............")
-                        polyList.append(MKPolygon(coordinates: boundaries, count: boundaries.count))
-                        
-                        
-                        
-                        return polyList
-                        
                         
                     }
-                    getPolygons()
-                
-                    
-                    
-                    func parser(parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-                        //Only check for the lines that have a <trkpt> or <wpt> tag. The other lines don't have coordinates and thus don't interest us
-                        if elementName == "trkpt" || elementName == "wpt" {
-                            //Create a World map coordinate from the file
-                            let lat = attributeDict["lat"]!
-                            let lon = attributeDict["lon"]!
-                            print(lat)
-                            boundaries.append(CLLocationCoordinate2DMake(CLLocationDegrees(lat)!, CLLocationDegrees(lon)!))
-                        }
+                    catch {
+                        print("\(error)")
                     }
-                    
                     
                 } catch {
-                    //content could not be loaded
+                    //Le contenu ne peut pas être chargé 
+                    
+                
                 }
+            //Create a point for each line of traces[] (tab of CLLocationCoordinates2D)
+            for point in traces{
+                
+                loader.stopAnimating()
+                loader.hidesWhenStopped = true
+             
+                let anotation = MKPointAnnotation()
+                anotation.coordinate = point
             
-            
-            
-            
-            //print("L'url de mon fichier est \(myFileUrl)")
-            
+                /************
+                Ajout de chaque anotation a la BDD
+                *************/
+            }
+            //Trace the route when the .gpx file is loaded
+            func traceRoute(coordinates: [CLLocationCoordinate2D]) {
+                let polyLine = MKPolyline(coordinates: traces, count: traces.count)
+                self.displayMap.add(polyLine, level: MKOverlayLevel.aboveRoads)
+                displayMap.delegate = self
+            }
+            traceRoute(coordinates: traces)
         }
+        
     }
+    
+    
 
   
-    @IBAction func `import`(_ sender: Any) {
-        print("OKOK33")
-
+    @IBAction func `import` (_ sender: Any) {
+       
         let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: ["public.xml"], in: UIDocumentPickerMode.import)
     
         documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         self.present(documentPicker, animated: true, completion: nil)
         documentPicker.delegate = self
         
+        loader.startAnimating()
+        
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        loader.stopAnimating()
+        
+        
+        
+        let alertController = UIAlertController(title: "Annuler ?", message: "Voulez vous annuler l'import ?", preferredStyle: UIAlertControllerStyle.alert)
+        let DestructiveAction = UIAlertAction(title: "Annuler", style: UIAlertActionStyle.destructive) {
+            (result : UIAlertAction) -> Void in
+            print("Destructive")
+        }
+        
+        let okAction = UIAlertAction(title: "Impotrer une trace", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            print("Continuer")
+            self.`import`(Any)
+        }
+        
+        alertController.addAction(DestructiveAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+       
     }
   
 
