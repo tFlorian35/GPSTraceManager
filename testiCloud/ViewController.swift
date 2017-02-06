@@ -50,6 +50,9 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                             let lat = Double(trkpt.attributes["lat"]!)
                             let lon = Double(trkpt.attributes["lon"]!)
                             traces.append(CLLocationCoordinate2D(latitude: lat!, longitude: lon!))
+                            var point = MKPointAnnotation()
+                            point.traces = traces
+                            
                         }
                         
                     }

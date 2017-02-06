@@ -16,11 +16,11 @@
 		1754773C1E39EB3B00536B68 /* testiCloudTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754773B1E39EB3B00536B68 /* testiCloudTests.swift */; };
 		175477471E39EB3B00536B68 /* testiCloudUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477461E39EB3B00536B68 /* testiCloudUITests.swift */; };
 		175477571E39F61900536B68 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175477561E39F61900536B68 /* CloudKit.framework */; };
-		178FAC4F1E40F7F0002E6DEB /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4A1E40F7F0002E6DEB /* Document.swift */; };
-		178FAC501E40F7F0002E6DEB /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4B1E40F7F0002E6DEB /* Element.swift */; };
-		178FAC511E40F7F0002E6DEB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4C1E40F7F0002E6DEB /* Error.swift */; };
-		178FAC521E40F7F0002E6DEB /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4D1E40F7F0002E6DEB /* Options.swift */; };
-		178FAC531E40F7F0002E6DEB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FAC4E1E40F7F0002E6DEB /* Parser.swift */; };
+		17AEE1FC1E48818500B4A3C9 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F71E48818500B4A3C9 /* Document.swift */; };
+		17AEE1FD1E48818500B4A3C9 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F81E48818500B4A3C9 /* Element.swift */; };
+		17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F91E48818500B4A3C9 /* Error.swift */; };
+		17AEE1FF1E48818500B4A3C9 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1FA1E48818500B4A3C9 /* Options.swift */; };
+		17AEE2001E48818500B4A3C9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1FB1E48818500B4A3C9 /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +57,12 @@
 		175477481E39EB3B00536B68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		175477541E39EDCF00536B68 /* testiCloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testiCloud.entitlements; sourceTree = "<group>"; };
 		175477561E39F61900536B68 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		178FAC491E40F7F0002E6DEB /* AEXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEXML.h; path = "../../AEXML-master/Sources/AEXML.h"; sourceTree = "<group>"; };
-		178FAC4A1E40F7F0002E6DEB /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Document.swift; path = "../../AEXML-master/Sources/Document.swift"; sourceTree = "<group>"; };
-		178FAC4B1E40F7F0002E6DEB /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Element.swift; path = "../../AEXML-master/Sources/Element.swift"; sourceTree = "<group>"; };
-		178FAC4C1E40F7F0002E6DEB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = "../../AEXML-master/Sources/Error.swift"; sourceTree = "<group>"; };
-		178FAC4D1E40F7F0002E6DEB /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Options.swift; path = "../../AEXML-master/Sources/Options.swift"; sourceTree = "<group>"; };
-		178FAC4E1E40F7F0002E6DEB /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = "../../AEXML-master/Sources/Parser.swift"; sourceTree = "<group>"; };
+		17AEE1F61E48818500B4A3C9 /* AEXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEXML.h; sourceTree = "<group>"; };
+		17AEE1F71E48818500B4A3C9 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		17AEE1F81E48818500B4A3C9 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		17AEE1F91E48818500B4A3C9 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		17AEE1FA1E48818500B4A3C9 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		17AEE1FB1E48818500B4A3C9 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,13 +116,13 @@
 			isa = PBXGroup;
 			children = (
 				175477541E39EDCF00536B68 /* testiCloud.entitlements */,
-				178FAC491E40F7F0002E6DEB /* AEXML.h */,
-				178FAC4A1E40F7F0002E6DEB /* Document.swift */,
-				178FAC4B1E40F7F0002E6DEB /* Element.swift */,
-				178FAC4C1E40F7F0002E6DEB /* Error.swift */,
-				178FAC4D1E40F7F0002E6DEB /* Options.swift */,
-				178FAC4E1E40F7F0002E6DEB /* Parser.swift */,
 				175477231E39EB3B00536B68 /* AppDelegate.swift */,
+				17AEE1F61E48818500B4A3C9 /* AEXML.h */,
+				17AEE1F71E48818500B4A3C9 /* Document.swift */,
+				17AEE1F81E48818500B4A3C9 /* Element.swift */,
+				17AEE1F91E48818500B4A3C9 /* Error.swift */,
+				17AEE1FA1E48818500B4A3C9 /* Options.swift */,
+				17AEE1FB1E48818500B4A3C9 /* Parser.swift */,
 				175477251E39EB3B00536B68 /* ViewController.swift */,
 				175477271E39EB3B00536B68 /* Main.storyboard */,
 				1754772D1E39EB3B00536B68 /* Assets.xcassets */,
@@ -304,14 +304,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				178FAC4F1E40F7F0002E6DEB /* Document.swift in Sources */,
+				17AEE1FC1E48818500B4A3C9 /* Document.swift in Sources */,
 				175477261E39EB3B00536B68 /* ViewController.swift in Sources */,
 				175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */,
 				1754772C1E39EB3B00536B68 /* testiCloud.xcdatamodeld in Sources */,
-				178FAC531E40F7F0002E6DEB /* Parser.swift in Sources */,
-				178FAC511E40F7F0002E6DEB /* Error.swift in Sources */,
-				178FAC501E40F7F0002E6DEB /* Element.swift in Sources */,
-				178FAC521E40F7F0002E6DEB /* Options.swift in Sources */,
+				17AEE2001E48818500B4A3C9 /* Parser.swift in Sources */,
+				17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */,
+				17AEE1FD1E48818500B4A3C9 /* Element.swift in Sources */,
+				17AEE1FF1E48818500B4A3C9 /* Options.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
