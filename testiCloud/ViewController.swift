@@ -29,7 +29,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     
     }
    
-    
     private var boundaries = [CLLocationCoordinate2D]()
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         //If I the file GPX file
