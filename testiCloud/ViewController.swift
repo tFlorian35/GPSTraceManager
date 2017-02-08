@@ -15,7 +15,7 @@ extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let pr = MKPolylineRenderer(overlay: overlay);
         pr.strokeColor = UIColor.red
-        pr.lineWidth = 10;
+        pr.lineWidth = 5;
         return pr;
     }
 }
@@ -30,7 +30,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +42,12 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         //Loader
         loader.stopAnimating()
         loader.hidesWhenStopped = true
-       
+        
+        
+        
+        
+        
+        
     }
    
     private var boundaries = [CLLocationCoordinate2D]()
@@ -84,11 +88,31 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 
                 let anotation = MKPointAnnotation()
                 anotation.coordinate = point
-            
-                /************
-                Ajout de chaque anotation a la BDD
-                *************/
+                
             }
+            
+            /************
+             Ajout de chaque anotation a la BDD
+             *************/
+            //SetUp DB public contianer
+            let database = CKContainer.default().publicCloudDatabase
+            
+            var TraceTitre = "Titre" as CKRecordValue
+            var TabAsCK = traces as CKRecordValue
+            
+            
+            let newTrace = CKRecord(recordType: "Trace")
+            newTrace["TTitre"] = TraceTitre
+            newTrace["TTrace"] = TabAsCK
+            
+            database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
+                if error != nil{
+                    print("Record OK \(record)")
+                }
+            })
+        
+
+
             //Trace the route when the .gpx file is loaded
             func traceRoute(coordinates: [CLLocationCoordinate2D]) {
                 let polyLine = MKPolyline(coordinates: traces, count: traces.count)
@@ -128,12 +152,10 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         let alertController = UIAlertController(title: "Annuler ?", message: "Voulez vous annuler l'import ?", preferredStyle: UIAlertControllerStyle.alert)
         let DestructiveAction = UIAlertAction(title: "Annuler", style: UIAlertActionStyle.destructive) {
             (result : UIAlertAction) -> Void in
-            print("Destructive")
         }
         
         let okAction = UIAlertAction(title: "Impotrer une trace", style: UIAlertActionStyle.default) {
             (result : UIAlertAction) -> Void in
-            print("Continuer")
             self.`import`(Any)
         }
         
