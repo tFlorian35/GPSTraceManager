@@ -54,6 +54,8 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         //If it is a .gpx file
         var traces = [CLLocationCoordinate2D]()
+        var CLLocTrace = [CLLocation]()
+        
         if controller.documentPickerMode == UIDocumentPickerMode.import {
             let myFileUrl = url
                 do {
@@ -71,6 +73,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                             let lat = Double(trkpt.attributes["lat"]!)
                             let lon = Double(trkpt.attributes["lon"]!)
                             traces.append(CLLocationCoordinate2D(latitude: lat!, longitude: lon!))
+                            CLLocTrace.append(CLLocation(latitude: lat!, longitude: lon!))
                         }
                         
                     }
@@ -94,14 +97,16 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
             /************
              Ajout de chaque anotation a la BDD
              *************/
+            var uniqueId = arc4random_uniform(99999)
             //SetUp DB public contianer
             let database = CKContainer.default().publicCloudDatabase
             
-            var TraceTitre = "Titre" as CKRecordValue
-            var TabAsCK = traces as CKRecordValue
+            var TraceTitre = "Demo cool 4" as CKRecordValue
+            var TabAsCK = CLLocTrace as CKRecordValue
             
+            var TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
+            var newTrace = CKRecord(recordType: "Trace", recordID: TestRecordID)
             
-            let newTrace = CKRecord(recordType: "Trace")
             newTrace["TTitre"] = TraceTitre
             newTrace["TTrace"] = TabAsCK
             
@@ -110,6 +115,12 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                     print("Record OK \(record)")
                 }
             })
+            
+            //Pour supression d'un enregistrement
+            /*
+            database.delete(withRecordID: CKRecordID(recordName: "E5AFC14A-3CB7-4537-A788-E3B566E220E3"), completionHandler: {recordID, error in
+                NSLog("OK or \(error)")
+            })*/
         
 
 
