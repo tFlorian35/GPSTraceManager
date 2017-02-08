@@ -21,13 +21,36 @@ extension ViewController: MKMapViewDelegate {
 }
 
 
-class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, UIAlertViewDelegate{
+class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     
     
     let locationManager = CLLocationManager()
     @IBOutlet weak var displayMap: MKMapView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
+    
+    @IBOutlet weak var UserTraceName: UITextField!
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    var CLLocTrace = [CLLocation]()
+    
+    var sport = ["Tannis", "Marche", "Course", "Surf", "Kite"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sport[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sport.count
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(sport[row])
+        
+    }
+
     
     
     override func viewDidLoad() {
@@ -45,16 +68,15 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         
         
         
-        
-        
-        
-    }
-   
+        }
+    
+    
+    
     private var boundaries = [CLLocationCoordinate2D]()
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         //If it is a .gpx file
         var traces = [CLLocationCoordinate2D]()
-        var CLLocTrace = [CLLocation]()
+        
         
         if controller.documentPickerMode == UIDocumentPickerMode.import {
             let myFileUrl = url
@@ -74,6 +96,8 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                             let lon = Double(trkpt.attributes["lon"]!)
                             traces.append(CLLocationCoordinate2D(latitude: lat!, longitude: lon!))
                             CLLocTrace.append(CLLocation(latitude: lat!, longitude: lon!))
+                            
+                            
                         }
                         
                     }
@@ -94,36 +118,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 
             }
             
-            /************
-             Ajout de chaque anotation a la BDD
-             *************/
-            var uniqueId = arc4random_uniform(99999)
-            //SetUp DB public contianer
-            let database = CKContainer.default().publicCloudDatabase
-            
-            var TraceTitre = "Demo cool 4" as CKRecordValue
-            var TabAsCK = CLLocTrace as CKRecordValue
-            
-            var TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
-            var newTrace = CKRecord(recordType: "Trace", recordID: TestRecordID)
-            
-            newTrace["TTitre"] = TraceTitre
-            newTrace["TTrace"] = TabAsCK
-            
-            database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
-                if error != nil{
-                    print("Record OK \(record)")
-                }
-            })
-            
-            //Pour supression d'un enregistrement
-            /*
-            database.delete(withRecordID: CKRecordID(recordName: "E5AFC14A-3CB7-4537-A788-E3B566E220E3"), completionHandler: {recordID, error in
-                NSLog("OK or \(error)")
-            })*/
-        
-
-
             //Trace the route when the .gpx file is loaded
             func traceRoute(coordinates: [CLLocationCoordinate2D]) {
                 let polyLine = MKPolyline(coordinates: traces, count: traces.count)
@@ -136,12 +130,41 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
             /************
              Zoomer sur le point du milieu de trace
              *************/
+         
+            
         }
+        
+       
+        
         
     }
     
     
-
+    @IBAction func UserValidImport(_ sender: Any) {
+        print("OKImportSucess")
+        print(CLLocTrace)
+        /*************
+        Ajout d'un tableau de trace a la bdd
+        *************/
+        let uniqueId = arc4random_uniform(99999)
+        
+        let database = CKContainer.default().publicCloudDatabase
+    
+        let TraceTitre = UserTraceName.text as! CKRecordValue
+        let TabAsCK = CLLocTrace as CKRecordValue
+    
+        let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
+        let newTrace = CKRecord(recordType: "Trace", recordID: TestRecordID)
+    
+        newTrace["TTitre"] = TraceTitre
+        newTrace["TTrace"] = TabAsCK
+    
+        database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
+            if error != nil{
+                print("Record OK \(record)")
+            }
+        })
+    }
   
     @IBAction func `import` (_ sender: Any) {
        
@@ -176,6 +199,8 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         
        
     }
+    
+    
   
 
 
