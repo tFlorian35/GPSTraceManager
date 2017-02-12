@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1746954B1E48B8C700F8E623 /* documentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746954A1E48B8C700F8E623 /* documentPicker.swift */; };
 		175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477231E39EB3B00536B68 /* AppDelegate.swift */; };
 		175477261E39EB3B00536B68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477251E39EB3B00536B68 /* ViewController.swift */; };
 		175477291E39EB3B00536B68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175477271E39EB3B00536B68 /* Main.storyboard */; };
@@ -17,6 +16,9 @@
 		1754773C1E39EB3B00536B68 /* testiCloudTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754773B1E39EB3B00536B68 /* testiCloudTests.swift */; };
 		175477471E39EB3B00536B68 /* testiCloudUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477461E39EB3B00536B68 /* testiCloudUITests.swift */; };
 		175477571E39F61900536B68 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175477561E39F61900536B68 /* CloudKit.framework */; };
+		1760326D1E4F913600D294DD /* sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760326C1E4F913500D294DD /* sport.swift */; };
+		176E0B7C1E4CAC6E00150D0E /* ViewControllerSportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176E0B7B1E4CAC6E00150D0E /* ViewControllerSportList.swift */; };
+		176E0B7E1E4CB0CE00150D0E /* TableViewCellSportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176E0B7D1E4CB0CE00150D0E /* TableViewCellSportList.swift */; };
 		17AEE1FC1E48818500B4A3C9 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F71E48818500B4A3C9 /* Document.swift */; };
 		17AEE1FD1E48818500B4A3C9 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F81E48818500B4A3C9 /* Element.swift */; };
 		17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F91E48818500B4A3C9 /* Error.swift */; };
@@ -42,7 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1746954A1E48B8C700F8E623 /* documentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = documentPicker.swift; sourceTree = "<group>"; };
 		175477201E39EB3A00536B68 /* GPSTraceManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSTraceManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		175477231E39EB3B00536B68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		175477251E39EB3B00536B68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +60,9 @@
 		175477481E39EB3B00536B68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		175477541E39EDCF00536B68 /* testiCloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testiCloud.entitlements; sourceTree = "<group>"; };
 		175477561E39F61900536B68 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		1760326C1E4F913500D294DD /* sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sport.swift; sourceTree = "<group>"; };
+		176E0B7B1E4CAC6E00150D0E /* ViewControllerSportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSportList.swift; sourceTree = "<group>"; };
+		176E0B7D1E4CB0CE00150D0E /* TableViewCellSportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellSportList.swift; sourceTree = "<group>"; };
 		17AEE1F61E48818500B4A3C9 /* AEXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEXML.h; sourceTree = "<group>"; };
 		17AEE1F71E48818500B4A3C9 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		17AEE1F81E48818500B4A3C9 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
@@ -117,19 +121,16 @@
 		175477221E39EB3B00536B68 /* testiCloud */ = {
 			isa = PBXGroup;
 			children = (
+				1760326B1E4F877000D294DD /* AEXML */,
 				175477541E39EDCF00536B68 /* testiCloud.entitlements */,
-				175477231E39EB3B00536B68 /* AppDelegate.swift */,
-				17AEE1F61E48818500B4A3C9 /* AEXML.h */,
-				17AEE1F71E48818500B4A3C9 /* Document.swift */,
-				17AEE1F81E48818500B4A3C9 /* Element.swift */,
-				17AEE1F91E48818500B4A3C9 /* Error.swift */,
-				17AEE1FA1E48818500B4A3C9 /* Options.swift */,
-				17AEE1FB1E48818500B4A3C9 /* Parser.swift */,
-				175477251E39EB3B00536B68 /* ViewController.swift */,
-				1746954A1E48B8C700F8E623 /* documentPicker.swift */,
 				175477271E39EB3B00536B68 /* Main.storyboard */,
-				1754772D1E39EB3B00536B68 /* Assets.xcassets */,
 				1754772F1E39EB3B00536B68 /* LaunchScreen.storyboard */,
+				175477231E39EB3B00536B68 /* AppDelegate.swift */,
+				175477251E39EB3B00536B68 /* ViewController.swift */,
+				176E0B7D1E4CB0CE00150D0E /* TableViewCellSportList.swift */,
+				176E0B7B1E4CAC6E00150D0E /* ViewControllerSportList.swift */,
+				1760326C1E4F913500D294DD /* sport.swift */,
+				1754772D1E39EB3B00536B68 /* Assets.xcassets */,
 				175477321E39EB3B00536B68 /* Info.plist */,
 				1754772A1E39EB3B00536B68 /* testiCloud.xcdatamodeld */,
 			);
@@ -160,6 +161,19 @@
 				175477561E39F61900536B68 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1760326B1E4F877000D294DD /* AEXML */ = {
+			isa = PBXGroup;
+			children = (
+				17AEE1F61E48818500B4A3C9 /* AEXML.h */,
+				17AEE1F71E48818500B4A3C9 /* Document.swift */,
+				17AEE1F81E48818500B4A3C9 /* Element.swift */,
+				17AEE1F91E48818500B4A3C9 /* Error.swift */,
+				17AEE1FA1E48818500B4A3C9 /* Options.swift */,
+				17AEE1FB1E48818500B4A3C9 /* Parser.swift */,
+			);
+			name = AEXML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +239,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Florian Tonnelier";
 				TargetAttributes = {
 					1754771F1E39EB3A00536B68 = {
@@ -311,9 +325,11 @@
 				175477261E39EB3B00536B68 /* ViewController.swift in Sources */,
 				175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */,
 				1754772C1E39EB3B00536B68 /* testiCloud.xcdatamodeld in Sources */,
-				1746954B1E48B8C700F8E623 /* documentPicker.swift in Sources */,
+				176E0B7E1E4CB0CE00150D0E /* TableViewCellSportList.swift in Sources */,
 				17AEE2001E48818500B4A3C9 /* Parser.swift in Sources */,
+				1760326D1E4F913600D294DD /* sport.swift in Sources */,
 				17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */,
+				176E0B7C1E4CAC6E00150D0E /* ViewControllerSportList.swift in Sources */,
 				17AEE1FD1E48818500B4A3C9 /* Element.swift in Sources */,
 				17AEE1FF1E48818500B4A3C9 /* Options.swift in Sources */,
 			);
@@ -388,6 +404,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -437,6 +454,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

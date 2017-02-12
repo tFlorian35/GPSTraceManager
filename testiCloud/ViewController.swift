@@ -23,17 +23,45 @@ extension ViewController: MKMapViewDelegate {
 
 class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    
-    
-    let locationManager = CLLocationManager()
     @IBOutlet weak var displayMap: MKMapView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     @IBOutlet weak var UserTraceName: UITextField!
-    
     @IBOutlet weak var pickerView: UIPickerView!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //SetUp Location manager
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        
+        
+        
+        if loader != nil {
+            //Loader
+            loader.stopAnimating()
+            loader.hidesWhenStopped = true
+        }
+        
+        
+        if pickerView != nil {
+            //Delegate pickerview to self
+            pickerView.delegate = self
+            pickerView.dataSource = self
+        }
+        
+        
+    }
+    
+    
+    let locationManager = CLLocationManager()
+    
     var CLLocTrace = [CLLocation]()
+    
     
     var sport = ["Tannis", "Marche", "Course", "Surf", "Kite"]
     
@@ -47,28 +75,14 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         return sport.count
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(sport[row])
         
+        let selectedValue = sport[row]
+        print(selectedValue)
     }
 
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //SetUp Location manager
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-        locationManager.delegate = self
-        
-        //Loader
-        loader.stopAnimating()
-        loader.hidesWhenStopped = true
-        
-        
-        
-        }
+    
     
     
     
@@ -130,6 +144,10 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
             /************
              Zoomer sur le point du milieu de trace
              *************/
+            
+            let span = MKCoordinateSpanMake(0.050, 0.050)
+            let region = MKCoordinateRegion(center: traces[0], span: span)
+            displayMap.setRegion(region, animated: true)
          
             
         }

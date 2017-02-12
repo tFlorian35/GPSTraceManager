@@ -44,7 +44,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VyC-9i-Y6S" id="QmH-sM-iPU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -56,12 +56,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFj-01-cdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2894" y="1144"/>
+            <point key="canvasLocation" x="-2364" y="1144"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Sport List-->
         <scene sceneID="0LP-ga-GBB">
             <objects>
-                <viewController id="wMJ-0c-Otw" sceneMemberID="viewController">
+                <viewController id="wMJ-0c-Otw" customClass="ViewControllerSportList" customModule="GPSTraceManager" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HCO-aq-xM5"/>
                         <viewControllerLayoutGuide type="bottom" id="vfs-aj-Mib"/>
@@ -80,7 +80,11 @@
                                                 <segue destination="BRt-J2-g31" kind="show" id="BhF-3w-ss6"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cHu-EI-qlf"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cHu-EI-qlf">
+                                            <connections>
+                                                <action selector="addSport:" destination="wMJ-0c-Otw" id="tGc-SD-K8f"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -89,23 +93,42 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="NA2-yv-6rK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="NA2-yv-6rK" customClass="TableViewCellSportList" customModule="GPSTraceManager">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NA2-yv-6rK" id="a4w-4M-psy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLX-Cg-eks">
+                                                    <rect key="frame" x="22" y="15" width="157" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="SportName" destination="YLX-Cg-eks" id="mdr-7Q-Yzz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wMJ-0c-Otw" id="RnS-Xe-scc"/>
+                                    <outlet property="delegate" destination="wMJ-0c-Otw" id="pwC-ET-0wX"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableViewSport" destination="dU7-kX-aX9" id="0u5-CN-TVF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlB-no-Qv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1636" y="1144"/>
+            <point key="canvasLocation" x="-1636" y="1143.7781109445277"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yhG-WY-sTo">
@@ -272,10 +295,10 @@
             </objects>
             <point key="canvasLocation" x="-140" y="-579"/>
         </scene>
-        <!--View Controller-->
+        <!--Affiche TraceVC-->
         <scene sceneID="96s-dU-gVW">
             <objects>
-                <viewController id="m8h-Xb-l43" sceneMemberID="viewController">
+                <viewController id="m8h-Xb-l43" customClass="AfficheTraceVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qEB-xw-UCp"/>
                         <viewControllerLayoutGuide type="bottom" id="AX9-dw-pqZ"/>
@@ -307,7 +330,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="M41-2l-xin"/>
+        <segue reference="BhF-3w-ss6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
