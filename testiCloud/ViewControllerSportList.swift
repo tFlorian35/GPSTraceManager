@@ -13,6 +13,8 @@ import CloudKit
 class ViewControllerSportList: ViewController, UITableViewDataSource, UITableViewDelegate {
 
     
+    @IBOutlet weak var reloadButton: UIToolbar!
+    @IBOutlet weak var isReloadingLoader: UIActivityIndicatorView!
     @IBOutlet weak var tableViewSport: UITableView!
     var tField: UITextField!
     
@@ -31,15 +33,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         loadSports()
     }
     
-    /*override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let indexPath = tableViewSport.indexPathForSelectedRow {
-            tableViewSport.deselectRow(at: indexPath, animated: true)
-        }
-        
-        loadSports()
-    }*/
+    
     
     //Load the sport from the database
     func loadSports(){
@@ -87,53 +81,37 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         return self.DBTabSports.count
     }
     
-    /*func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }*/
-    /*func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }*/
+  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewSport.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellSportList
         //cell.accessoryType = .disclosureIndicator
-
         cell.SportName.text = DBTabSports[indexPath.row].SDesiniation
-        
-        
         return cell
     }
     
+    //Action when slide on the cell
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Supprimer") {action, index in
             let database = CKContainer.default().publicCloudDatabase
             
             
             print("Delete pressed")
-            let str = self.DBTabSports[indexPath.row].SDesiniation
-            print(str)
-            database.delete(withRecordID: CKRecordID(recordName: str!), completionHandler: {recordID, error in
+            let recName = self.DBTabSports[indexPath.row].SDesiniation
+            print(recName)
+            database.delete(withRecordID: CKRecordID(recordName: recName!), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
             })
-            
+            self.isReloadingLoader.startAnimating()
             self.viewDidLoad()
             self.viewWillAppear(true)
+            self.isReloadingLoader.stopAnimating()
         }
-        /*let edit = UITableViewRowAction(style: .default, title: "Modifier") {action, index in
-            print("Editer cliqué")
-        }
-        edit.backgroundColor = UIColor.lightGray*/
         
         return [delete]
         
     }
-   
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    
-    
+    //Add nex sport into db
     @IBAction func addSport(_ sender: Any) {
         
         
@@ -177,20 +155,16 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         self.present(alert, animated: true, completion: {
             print("completion block")
         })
-        
-        self.viewDidLoad()
-        self.viewWillAppear(true)
-        
-        
+       
     }
     
-    /*
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableViewSport.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as! TableViewCellSportList
-        
-        cell.SportName.text = TabSport[indexPath.row]
-        return cell
-    }*/
+    
+    @IBAction func reloadClicked(_ sender: Any) {
+        self.isReloadingLoader.startAnimating()
+        self.viewDidLoad()
+        self.viewWillAppear(true)
+        self.isReloadingLoader.stopAnimating()
+    }
     
     
 }
