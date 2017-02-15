@@ -27,9 +27,11 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         // Do any additional setup after loading the view.
         tableViewSport.delegate = self
         tableViewSport.dataSource = self
+        
+        loadSports()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if let indexPath = tableViewSport.indexPathForSelectedRow {
@@ -37,7 +39,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         }
         
         loadSports()
-    }
+    }*/
     
     //Load the sport from the database
     func loadSports(){
@@ -106,23 +108,22 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
             let database = CKContainer.default().publicCloudDatabase
             
             
-            
             print("Delete pressed")
             let str = self.DBTabSports[indexPath.row].SDesiniation
             print(str)
-            
-            database.delete(withRecordID: CKRecordID(recordName: "E5AFC14A-3CB7-4537-A788-E3B566E220E3"), completionHandler: {recordID, error in
+            database.delete(withRecordID: CKRecordID(recordName: str!), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
             })
             
-            
+            self.viewDidLoad()
+            self.viewWillAppear(true)
         }
-        let edit = UITableViewRowAction(style: .default, title: "Modifier") {action, index in
+        /*let edit = UITableViewRowAction(style: .default, title: "Modifier") {action, index in
             print("Editer cliqué")
         }
-        edit.backgroundColor = UIColor.lightGray
+        edit.backgroundColor = UIColor.lightGray*/
         
-        return [delete, edit]
+        return [delete]
         
     }
    
@@ -157,11 +158,11 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
             print("Item : \(self.tField.text!)")
             
             //Begin DB Stuff
-            let uniqueId = arc4random_uniform(99999)
+            //let uniqueId = arc4random_uniform(99999)
             let database = CKContainer.default().publicCloudDatabase
             let SportName = self.tField.text as! CKRecordValue
-            let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
-            let newTrace = CKRecord(recordType: "Sport", recordID: TestRecordID)
+            let SportRecordID = CKRecordID(recordName: "\(SportName)")
+            let newTrace = CKRecord(recordType: "Sport", recordID: SportRecordID)
             
             newTrace["SDesiniation"] = SportName
             
@@ -171,12 +172,16 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
                 }
             })
             
-            self.tableViewSport.reloadData()
             //End DB Stuff
         }))
         self.present(alert, animated: true, completion: {
             print("completion block")
         })
+        
+        self.viewDidLoad()
+        self.viewWillAppear(true)
+        
+        
     }
     
     /*
