@@ -12,16 +12,11 @@ import CloudKit
 
 class ViewControllerSportList: ViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var reloadButton: UIToolbar!
-    @IBOutlet weak var isReloadingLoader: UIActivityIndicatorView!
+
     @IBOutlet weak var tableViewSport: UITableView!
     var tField: UITextField!
-    
-    
-    var TabSport = ["Foot","Kite","Tennis"]
     var DBTabSports = [SportClass]()
     var refreshControl: UIRefreshControl = UIRefreshControl()
-    
     
     
     override func viewDidLoad() {
@@ -109,17 +104,12 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         let delete = UITableViewRowAction(style: .destructive, title: "Supprimer") {action, index in
             let database = CKContainer.default().publicCloudDatabase
             
-            
             print("Delete pressed")
             let recName = self.DBTabSports[indexPath.row].SDesiniation
             print(recName)
             database.delete(withRecordID: CKRecordID(recordName: recName!), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
             })
-            self.isReloadingLoader.startAnimating()
-            self.viewDidLoad()
-            self.viewWillAppear(true)
-            self.isReloadingLoader.stopAnimating()
         }
         
         return [delete]
@@ -172,14 +162,5 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         })
        
     }
-    
-    
-    @IBAction func reloadClicked(_ sender: Any) {
-        self.isReloadingLoader.startAnimating()
-        self.viewDidLoad()
-        self.viewWillAppear(true)
-        self.isReloadingLoader.stopAnimating()
-    }
-    
     
 }
