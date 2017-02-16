@@ -12,16 +12,17 @@ import CloudKit
 
 class ViewControllerSportList: ViewController, UITableViewDataSource, UITableViewDelegate {
 
-    
     @IBOutlet weak var reloadButton: UIToolbar!
     @IBOutlet weak var isReloadingLoader: UIActivityIndicatorView!
     @IBOutlet weak var tableViewSport: UITableView!
     var tField: UITextField!
     
     
-    
     var TabSport = ["Foot","Kite","Tennis"]
     var DBTabSports = [SportClass]()
+    var refreshControl: UIRefreshControl = UIRefreshControl()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,22 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         tableViewSport.dataSource = self
         
         loadSports()
+        
+        refreshControl.addTarget(self, action: #selector(ViewControllerSportList.refreshData), for: UIControlEvents.valueChanged)
+        if #available(iOS 10.0, *){
+            tableViewSport.refreshControl = refreshControl
+        }else{
+            tableViewSport.addSubview(refreshControl)
+        }
+        
     }
     
+    func refreshData(){
+        print("refreshing")
+        self.viewDidLoad()
+        self.viewWillAppear(true)
+        refreshControl.endRefreshing()
+    }
     
     
     //Load the sport from the database
