@@ -59,7 +59,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
             lesEquipements.recordID = record.recordID
             
             lesEquipements.Ecommentaire = record["Ecommentaire"] as! String!
-            //lesEquipements.EdateAchat = record["EdateAchat"] as! Date!
+            lesEquipements.EdateAchat = record["EdateAchat"] as! String!
             lesEquipements.Edesignation = record.value(forKey: "Edesignation") as! String?
             lesEquipements.Eetat = record["Eetat"] as! String!
             
@@ -108,15 +108,18 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
         cellE.designation.text = DBTabEquipements[indexPath.row].Edesignation
         cellE.etatLabel.text = DBTabEquipements[indexPath.row].Eetat
         cellE.commentaire.text = DBTabEquipements[indexPath.row].Ecommentaire
-        //cellE.dateachat.text = DBTabEquipements[indexPath.row].EdateAchat
+        cellE.dateachat.text = DBTabEquipements[indexPath.row].EdateAchat
         cellE.equipementImage.image = DBTabEquipements[indexPath.row].Eimage
         
         return cellE
     }
     
-    //Action when slide on the cell
-    /*func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //Action when slide on the cell
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Supprimer") {action, index in
+            func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+                return 0.0
+            }
             let database = CKContainer.default().publicCloudDatabase
             
             print("Delete pressed")
@@ -125,11 +128,14 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
             database.delete(withRecordID: CKRecordID(recordName: recName!), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
             })
+            
+            
+            
         }
         
         return [delete]
         
-    }*/
+    }
     
     //Add nex sport into db
     /*@IBAction func addSport(_ sender: Any) {

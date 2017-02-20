@@ -15,7 +15,6 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
 
     @IBOutlet weak var tableViewSport: UITableView!
     var tField: UITextField!
-    var DBTabSports = [SportClass]()
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
     
@@ -39,7 +38,6 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
     
     func refreshData(){
         print("refreshing")
-        loadSports()
         self.viewDidLoad()
         self.viewWillAppear(true)
         refreshControl.endRefreshing()
@@ -47,6 +45,8 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
     
     
     //Load the sport from the database
+    var DBTabSports = [SportClass]()
+
     func loadSports(){
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Sport", predicate: predicate)
@@ -72,7 +72,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
                     self.DBTabSports = newSports
                     self.tableViewSport.reloadData()
                 }else{
-                    let ac = UIAlertController(title: "Erreur de chargement", message: "Votre iPhone est il associé à un Apple ID ? : \(error!.localizedDescription)", preferredStyle: .alert)
+                    let ac = UIAlertController(title: "Fetch failed", message: "There was a problem fetching the list of whistles; please try again: \(error!.localizedDescription)", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))
                     self.present(ac, animated: true)
                 }
@@ -82,9 +82,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         //Operation on the public DB
         CKContainer.default().publicCloudDatabase.add(op)
         
-        
-        
-        
+      
     }
     
     

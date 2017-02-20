@@ -14,7 +14,7 @@ import UIKit
 class EquipementsClass: NSObject {
     var recordID : CKRecordID?
     var Ecommentaire : String?
-    var EdateAchat : Date?
+    var EdateAchat : String?
     var Edesignation : String?
     var Eetat : String?
     var Eimage : UIImage?
