@@ -38,6 +38,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
     
     func refreshData(){
         print("refreshing")
+        loadEquipements()
         self.viewDidLoad()
         self.viewWillAppear(true)
         refreshControl.endRefreshing()
@@ -50,11 +51,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
         let query = CKQuery(recordType: "Equipement", predicate: predicate)
         
         let op = CKQueryOperation(query: query)
-        op.desiredKeys = ["Ecommentaire"]
-        op.desiredKeys = ["EdateAchat"]
-        op.desiredKeys = ["Edesignation"]
-        op.desiredKeys = ["Eetat"]
-        op.desiredKeys = ["Eimage"]
+        op.desiredKeys = ["Ecommentaire", "EdateAchat", "Edesignation", "Eetat", "Eimage"]
         var newEquipement = [EquipementsClass]()
         
         op.recordFetchedBlock = {record in
@@ -63,8 +60,9 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
             
             lesEquipements.Ecommentaire = record["Ecommentaire"] as! String!
             //lesEquipements.EdateAchat = record["EdateAchat"] as! Date!
-            lesEquipements.Edesignation = record["Edesignation"] as! String!
+            lesEquipements.Edesignation = record.value(forKey: "Edesignation") as! String?
             lesEquipements.Eetat = record["Eetat"] as! String!
+            
         
             if let photoAsset = record.value(forKey: "Eimage") as? CKAsset{
                 lesEquipements.Eimage = UIImage(data: NSData(contentsOf: photoAsset.fileURL)! as Data)
@@ -105,7 +103,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellE = tableViewEquipements.dequeueReusableCell(withIdentifier: "cellE", for: indexPath) as! TableViewCellEquipementList
-        cellE.accessoryType = .disclosureIndicator
+        //cellE.accessoryType = .disclosureIndicator
         
         cellE.designation.text = DBTabEquipements[indexPath.row].Edesignation
         cellE.etatLabel.text = DBTabEquipements[indexPath.row].Eetat

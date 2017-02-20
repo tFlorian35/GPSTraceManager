@@ -10,6 +10,7 @@
 		17405C9A1E5596E800C905EA /* ViewControllerEquipementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17405C991E5596E800C905EA /* ViewControllerEquipementList.swift */; };
 		17405C9C1E559C1A00C905EA /* equipement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17405C9B1E559C1A00C905EA /* equipement.swift */; };
 		17405CA01E55A17900C905EA /* TableViewCellEquipementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17405C9F1E55A17900C905EA /* TableViewCellEquipementList.swift */; };
+		1746A0CB1E58C7C700FDF316 /* ViewControllerNouvelEquipement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746A0CA1E58C7C700FDF316 /* ViewControllerNouvelEquipement.swift */; };
 		175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477231E39EB3B00536B68 /* AppDelegate.swift */; };
 		175477261E39EB3B00536B68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477251E39EB3B00536B68 /* ViewController.swift */; };
 		175477291E39EB3B00536B68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175477271E39EB3B00536B68 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		17405C991E5596E800C905EA /* ViewControllerEquipementList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerEquipementList.swift; sourceTree = "<group>"; };
 		17405C9B1E559C1A00C905EA /* equipement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = equipement.swift; sourceTree = "<group>"; };
 		17405C9F1E55A17900C905EA /* TableViewCellEquipementList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellEquipementList.swift; sourceTree = "<group>"; };
+		1746A0CA1E58C7C700FDF316 /* ViewControllerNouvelEquipement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerNouvelEquipement.swift; sourceTree = "<group>"; };
 		175477201E39EB3A00536B68 /* GPSTraceManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSTraceManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		175477231E39EB3B00536B68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		175477251E39EB3B00536B68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,9 +118,10 @@
 		17405C9E1E559F0900C905EA /* Equipement */ = {
 			isa = PBXGroup;
 			children = (
+				17405C9F1E55A17900C905EA /* TableViewCellEquipementList.swift */,
 				17405C991E5596E800C905EA /* ViewControllerEquipementList.swift */,
 				17405C9B1E559C1A00C905EA /* equipement.swift */,
-				17405C9F1E55A17900C905EA /* TableViewCellEquipementList.swift */,
+				1746A0CA1E58C7C700FDF316 /* ViewControllerNouvelEquipement.swift */,
 			);
 			name = Equipement;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17AEE1FC1E48818500B4A3C9 /* Document.swift in Sources */,
+				1746A0CB1E58C7C700FDF316 /* ViewControllerNouvelEquipement.swift in Sources */,
 				175477261E39EB3B00536B68 /* ViewController.swift in Sources */,
 				17405CA01E55A17900C905EA /* TableViewCellEquipementList.swift in Sources */,
 				175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */,

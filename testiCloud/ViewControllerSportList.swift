@@ -39,6 +39,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
     
     func refreshData(){
         print("refreshing")
+        loadSports()
         self.viewDidLoad()
         self.viewWillAppear(true)
         refreshControl.endRefreshing()
@@ -71,7 +72,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
                     self.DBTabSports = newSports
                     self.tableViewSport.reloadData()
                 }else{
-                    let ac = UIAlertController(title: "Fetch failed", message: "There was a problem fetching the list of whistles; please try again: \(error!.localizedDescription)", preferredStyle: .alert)
+                    let ac = UIAlertController(title: "Erreur de chargement", message: "Votre iPhone est il associé à un Apple ID ? : \(error!.localizedDescription)", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))
                     self.present(ac, animated: true)
                 }
