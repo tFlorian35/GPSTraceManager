@@ -11,6 +11,8 @@
 		17405C9C1E559C1A00C905EA /* equipement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17405C9B1E559C1A00C905EA /* equipement.swift */; };
 		17405CA01E55A17900C905EA /* TableViewCellEquipementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17405C9F1E55A17900C905EA /* TableViewCellEquipementList.swift */; };
 		1746A0CB1E58C7C700FDF316 /* ViewControllerNouvelEquipement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746A0CA1E58C7C700FDF316 /* ViewControllerNouvelEquipement.swift */; };
+		1746A0CF1E5B94C600FDF316 /* ViewControllerTraceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746A0CE1E5B94C600FDF316 /* ViewControllerTraceList.swift */; };
+		1746A0D21E5B97F300FDF316 /* trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746A0D11E5B97F300FDF316 /* trace.swift */; };
 		175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477231E39EB3B00536B68 /* AppDelegate.swift */; };
 		175477261E39EB3B00536B68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477251E39EB3B00536B68 /* ViewController.swift */; };
 		175477291E39EB3B00536B68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175477271E39EB3B00536B68 /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		17405C9B1E559C1A00C905EA /* equipement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = equipement.swift; sourceTree = "<group>"; };
 		17405C9F1E55A17900C905EA /* TableViewCellEquipementList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellEquipementList.swift; sourceTree = "<group>"; };
 		1746A0CA1E58C7C700FDF316 /* ViewControllerNouvelEquipement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerNouvelEquipement.swift; sourceTree = "<group>"; };
+		1746A0CE1E5B94C600FDF316 /* ViewControllerTraceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTraceList.swift; sourceTree = "<group>"; };
+		1746A0D11E5B97F300FDF316 /* trace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trace.swift; sourceTree = "<group>"; };
 		175477201E39EB3A00536B68 /* GPSTraceManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSTraceManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		175477231E39EB3B00536B68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		175477251E39EB3B00536B68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,15 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		1746A0D01E5B94D000FDF316 /* Trace */ = {
+			isa = PBXGroup;
+			children = (
+				1746A0CE1E5B94C600FDF316 /* ViewControllerTraceList.swift */,
+				1746A0D11E5B97F300FDF316 /* trace.swift */,
+			);
+			name = Trace;
+			sourceTree = "<group>";
+		};
 		175477171E39EB3A00536B68 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +177,7 @@
 				1754772F1E39EB3B00536B68 /* LaunchScreen.storyboard */,
 				175477231E39EB3B00536B68 /* AppDelegate.swift */,
 				175477251E39EB3B00536B68 /* ViewController.swift */,
+				1746A0D01E5B94D000FDF316 /* Trace */,
 				17405C9D1E559EFC00C905EA /* Sport */,
 				17405C9E1E559F0900C905EA /* Equipement */,
 				1754772D1E39EB3B00536B68 /* Assets.xcassets */,
@@ -359,6 +373,7 @@
 			files = (
 				17AEE1FC1E48818500B4A3C9 /* Document.swift in Sources */,
 				1746A0CB1E58C7C700FDF316 /* ViewControllerNouvelEquipement.swift in Sources */,
+				1746A0CF1E5B94C600FDF316 /* ViewControllerTraceList.swift in Sources */,
 				175477261E39EB3B00536B68 /* ViewController.swift in Sources */,
 				17405CA01E55A17900C905EA /* TableViewCellEquipementList.swift in Sources */,
 				175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */,
@@ -370,6 +385,7 @@
 				17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */,
 				176E0B7C1E4CAC6E00150D0E /* ViewControllerSportList.swift in Sources */,
 				17405C9A1E5596E800C905EA /* ViewControllerEquipementList.swift in Sources */,
+				1746A0D21E5B97F300FDF316 /* trace.swift in Sources */,
 				17AEE1FD1E48818500B4A3C9 /* Element.swift in Sources */,
 				17AEE1FF1E48818500B4A3C9 /* Options.swift in Sources */,
 			);
@@ -505,6 +521,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -514,7 +531,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -32,6 +32,8 @@ extension UIViewController {
 }
 
 
+
+
 class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBOutlet weak var displayMap: MKMapView!
@@ -40,6 +42,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     @IBOutlet weak var UserTraceName: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
     
+    @IBOutlet weak var testImg: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,9 +96,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
 
     
     
-    
-    
-    
+   
     
     private var boundaries = [CLLocationCoordinate2D]()
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
@@ -155,18 +156,57 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
             /************
              Zoomer sur le point du milieu de trace
              *************/
-            
             let span = MKCoordinateSpanMake(0.050, 0.050)
-            let region = MKCoordinateRegion(center: traces[0], span: span)
+            let medianeTab : Int = (traces.count)/2
+            let region = MKCoordinateRegion(center: traces[medianeTab], span: span)
             displayMap.setRegion(region, animated: true)
-         
             
+            
+            func takeSnapShot() {
+                let SnapshotOptions = MKMapSnapshotOptions()
+            
+                
+               
+                SnapshotOptions.region = region
+              
+                SnapshotOptions.scale = UIScreen.main.scale
+                
+                
+                SnapshotOptions.size = CGSize(width: 200, height: 200)
+                
+                SnapshotOptions.showsBuildings = true
+                SnapshotOptions.showsPointsOfInterest = true
+                
+                
+                
+                
+                let snapShotter = MKMapSnapshotter(options: SnapshotOptions)
+        
+                snapShotter.start() { snapshot, error in
+                    guard let snapshot = snapshot else {
+                        
+                        return
+                    }
+                    
+                    self.testImg.image = snapshot.image
+                    
+                    
+                    
+                }
+                
+                
+              
+                
+                
+            }
+            
+            
+            takeSnapShot()
+                    
+
         }
         
-       
-        
-        
-    }
+}
     
     
     @IBAction func UserValidImport(_ sender: Any) {
@@ -182,6 +222,8 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         let TraceTitre = UserTraceName.text as! CKRecordValue
         let TabAsCK = CLLocTrace as CKRecordValue
     
+        //let imageTrace = snapshot
+        
         let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
         let newTrace = CKRecord(recordType: "Trace", recordID: TestRecordID)
     
