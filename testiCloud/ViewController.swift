@@ -18,6 +18,8 @@ extension ViewController: MKMapViewDelegate {
         pr.lineWidth = 5;
         return pr;
     }
+    
+    
 }
 
 extension UIViewController {
@@ -30,8 +32,6 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
-
-
 
 
 class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
@@ -160,50 +160,14 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
             let medianeTab : Int = (traces.count)/2
             let region = MKCoordinateRegion(center: traces[medianeTab], span: span)
             displayMap.setRegion(region, animated: true)
+          
             
-            
-            func takeSnapShot() {
-                let SnapshotOptions = MKMapSnapshotOptions()
-            
-                
-               
-                SnapshotOptions.region = region
-              
-                SnapshotOptions.scale = UIScreen.main.scale
-                
-                
-                SnapshotOptions.size = CGSize(width: 200, height: 200)
-                
-                SnapshotOptions.showsBuildings = true
-                SnapshotOptions.showsPointsOfInterest = true
-                
-                
-                
-                
-                let snapShotter = MKMapSnapshotter(options: SnapshotOptions)
-        
-                snapShotter.start() { snapshot, error in
-                    guard let snapshot = snapshot else {
-                        
-                        return
-                    }
-                    
-                    self.testImg.image = snapshot.image
-                    
-                    
-                    
-                }
-                
-                
-              
-                
-                
-            }
-            
-            
-            takeSnapShot()
-                    
-
+           /*
+            UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0);
+            self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+            var image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            */
+         
         }
         
 }
@@ -235,6 +199,16 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                 print("Record OK \(record)")
             }
         })
+        
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: displayMap.bounds.size.width,height: displayMap.bounds.size.height), false, 0);
+        
+        let myRect = CGRect(x: 0, y: 0, width: displayMap.bounds.size.width, height: displayMap.bounds.size.height)
+        self.displayMap.drawHierarchy(in: myRect, afterScreenUpdates: true)
+        var image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        
+        self.self.testImg.image = image
     }
   
     @IBAction func `import` (_ sender: Any) {
