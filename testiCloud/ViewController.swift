@@ -160,21 +160,46 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
             let medianeTab : Int = (traces.count)/2
             let region = MKCoordinateRegion(center: traces[medianeTab], span: span)
             displayMap.setRegion(region, animated: true)
-          
             
-           /*
-            UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0);
-            self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-            var image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            */
-         
+            let alertController = UIAlertController(title: "Info", message: "Pour un meilleur rendu, ajustez manuellement la trace à l'écran de manière la la voir entièrement", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+                (result : UIAlertAction) -> Void in
+                //ok
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+            
         }
         
 }
     
     
     @IBAction func UserValidImport(_ sender: Any) {
-        print("OKImportSucess")
+        
+        //Capture d'écran de la map
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: displayMap.bounds.size.width,height: displayMap.bounds.size.height), false, 0);
+        
+        let myRect = CGRect(x: 0, y: 0, width: displayMap.bounds.size.width, height: displayMap.bounds.size.height)
+        self.displayMap.drawHierarchy(in: myRect, afterScreenUpdates: true)
+        var imageTrace:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        //Je sauvegarde l'image temporairement afin de lui atribuer une URL pour sauvegarde dans CK
+        let tmpImageTrace = UIImageJPEGRepresentation(imageTrace, 0.5)
+        let tmpImageTraceUrl = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
+        do{
+            try tmpImageTrace!.write(to: tmpImageTraceUrl!)
+            
+        }catch let error as Error{
+            print("error")
+            return
+        }
+        
+        
+        self.self.testImg.image = imageTrace
+        
+        
         print(CLLocTrace)
         /*************
         Ajout d'un tableau de trace a la bdd
@@ -185,30 +210,23 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     
         let TraceTitre = UserTraceName.text as! CKRecordValue
         let TabAsCK = CLLocTrace as CKRecordValue
-    
-        //let imageTrace = snapshot
+        
+        
         
         let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
         let newTrace = CKRecord(recordType: "Trace", recordID: TestRecordID)
     
         newTrace["TTitre"] = TraceTitre
         newTrace["TTrace"] = TabAsCK
-    
+        newTrace["TImage"] = CKAsset(fileURL: tmpImageTraceUrl!)
+        
         database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
             if error != nil{
                 print("Record OK \(record)")
             }
         })
         
-        
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: displayMap.bounds.size.width,height: displayMap.bounds.size.height), false, 0);
-        
-        let myRect = CGRect(x: 0, y: 0, width: displayMap.bounds.size.width, height: displayMap.bounds.size.height)
-        self.displayMap.drawHierarchy(in: myRect, afterScreenUpdates: true)
-        var image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        
-        
-        self.self.testImg.image = image
+        print("OKImportSucess")
     }
   
     @IBAction func `import` (_ sender: Any) {

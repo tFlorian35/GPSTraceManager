@@ -22,6 +22,7 @@
 		1754773C1E39EB3B00536B68 /* testiCloudTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754773B1E39EB3B00536B68 /* testiCloudTests.swift */; };
 		175477471E39EB3B00536B68 /* testiCloudUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175477461E39EB3B00536B68 /* testiCloudUITests.swift */; };
 		175477571E39F61900536B68 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175477561E39F61900536B68 /* CloudKit.framework */; };
+		175B6C5E1E5F9F35002B3836 /* TableViewCellTraceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175B6C5D1E5F9F35002B3836 /* TableViewCellTraceList.swift */; };
 		1760326D1E4F913600D294DD /* sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760326C1E4F913500D294DD /* sport.swift */; };
 		176E0B7C1E4CAC6E00150D0E /* ViewControllerSportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176E0B7B1E4CAC6E00150D0E /* ViewControllerSportList.swift */; };
 		176E0B7E1E4CB0CE00150D0E /* TableViewCellSportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176E0B7D1E4CB0CE00150D0E /* TableViewCellSportList.swift */; };
@@ -72,6 +73,7 @@
 		175477481E39EB3B00536B68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		175477541E39EDCF00536B68 /* testiCloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testiCloud.entitlements; sourceTree = "<group>"; };
 		175477561E39F61900536B68 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		175B6C5D1E5F9F35002B3836 /* TableViewCellTraceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellTraceList.swift; sourceTree = "<group>"; };
 		1760326C1E4F913500D294DD /* sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sport.swift; sourceTree = "<group>"; };
 		176E0B7B1E4CAC6E00150D0E /* ViewControllerSportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSportList.swift; sourceTree = "<group>"; };
 		176E0B7D1E4CB0CE00150D0E /* TableViewCellSportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellSportList.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				1746A0CE1E5B94C600FDF316 /* ViewControllerTraceList.swift */,
+				175B6C5D1E5F9F35002B3836 /* TableViewCellTraceList.swift */,
 				1746A0D11E5B97F300FDF316 /* trace.swift */,
 			);
 			name = Trace;
@@ -382,6 +385,7 @@
 				17AEE2001E48818500B4A3C9 /* Parser.swift in Sources */,
 				1760326D1E4F913600D294DD /* sport.swift in Sources */,
 				17405C9C1E559C1A00C905EA /* equipement.swift in Sources */,
+				175B6C5E1E5F9F35002B3836 /* TableViewCellTraceList.swift in Sources */,
 				17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */,
 				176E0B7C1E4CAC6E00150D0E /* ViewControllerSportList.swift in Sources */,
 				17405C9A1E5596E800C905EA /* ViewControllerEquipementList.swift in Sources */,

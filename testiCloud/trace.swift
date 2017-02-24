@@ -6,6 +6,7 @@
 //  Copyright © 2017 Florian Tonnelier. All rights reserved.
 //
 
+
 import Foundation
 
 import CloudKit
@@ -15,4 +16,5 @@ class TraceClass: NSObject {
     var recordID : CKRecordID?
     var TTitre : String!
     var TTrace : [CLLocation]!
+    var TImage : UIImage!
 }
