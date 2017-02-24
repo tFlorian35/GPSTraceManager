@@ -26,7 +26,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         tableViewSport.dataSource = self
         
         loadSports()
-        
+        print(DBTabSports)
         refreshControl.addTarget(self, action: #selector(ViewControllerSportList.refreshData), for: UIControlEvents.valueChanged)
         if #available(iOS 10.0, *){
             tableViewSport.refreshControl = refreshControl
@@ -57,7 +57,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         
         op.recordFetchedBlock = {record in
             let lesSports = SportClass()
-            lesSports.recordID = record.recordID
+            //lesSports.recordID = record.recordID
             lesSports.SDesiniation = record["SDesiniation"] as! String!
     
             newSports.append(lesSports)
@@ -87,6 +87,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(self.DBTabSports.count)
         return self.DBTabSports.count
     }
     
@@ -106,7 +107,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
             print("Delete pressed")
             let recName = self.DBTabSports[indexPath.row].SDesiniation
             print(recName)
-            database.delete(withRecordID: CKRecordID(recordName: recName!), completionHandler: {recordID, error in
+            database.delete(withRecordID: CKRecordID(recordName: recName), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
             })
         }

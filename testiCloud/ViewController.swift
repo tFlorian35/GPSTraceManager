@@ -11,29 +11,6 @@ import MapKit
 import CloudKit
 import Foundation
 
-extension ViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let pr = MKPolylineRenderer(overlay: overlay);
-        pr.strokeColor = UIColor.red
-        pr.lineWidth = 5;
-        return pr;
-    }
-    
-    
-}
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
-
 class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDelegate, CLLocationManagerDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBOutlet weak var displayMap: MKMapView!
@@ -44,8 +21,59 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     
     @IBOutlet weak var testImg: UIImageView!
     
+    var DBSportList = [SportClass]()
+
+    let locationManager = CLLocationManager()
+    
+    //CK needs CLLocation only
+    var CLLocTrace = [CLLocation]()
+    
+    func createSportTab(){
+    
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Sport", predicate: predicate)
+        
+        let op = CKQueryOperation(query: query)
+        op.desiredKeys = ["SDesiniation"]
+        var newSports = [SportClass]()
+        
+        op.recordFetchedBlock = {record in
+            let lesSports = SportClass()
+            lesSports.SDesiniation = record["SDesiniation"] as! String!
+            
+            newSports.append(lesSports)
+            
+        }
+        
+        op.queryCompletionBlock = { [unowned self] (cursor, error) in
+            DispatchQueue.main.async {
+                if error == nil {
+                    self.DBSportList = newSports
+                    if self.pickerView != nil{
+                        self.pickerView.reloadAllComponents()
+                    }
+                
+                    
+                }else{
+                    let ac = UIAlertController(title: "Fetch failed", message: "There was a problem fetching the list of whistles; please try again: \(error!.localizedDescription)", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(ac, animated: true)
+                }
+            }
+        }
+        
+        //Operation on the public DB
+        CKContainer.default().publicCloudDatabase.add(op)
+        
+        
+    }
+    
+   
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        createSportTab()
         
         //SetUp Location manager
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -66,48 +94,46 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
             //Delegate pickerview to self
             pickerView.delegate = self
             pickerView.dataSource = self
-        }
+            
         
+            
+        }
         
     }
     
-    
-    let locationManager = CLLocationManager()
-    
-    var CLLocTrace = [CLLocation]()
-    
-    
-    var sport = ["Tannis", "Marche", "Course", "Surf", "Kite"]
-    
+    //Implément the picker viex with sport tab fom CK
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sport[row]
+        print(self.DBSportList[row].SDesiniation)
+        return self.DBSportList[row].SDesiniation
+        
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sport.count
+        
+        return self.DBSportList.count
+        
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let selectedValue = sport[row]
+        let selectedValue = self.DBSportList[row].SDesiniation
         print(selectedValue)
     }
-
     
     
-   
-    
-    private var boundaries = [CLLocationCoordinate2D]()
+    var boundaries = [CLLocationCoordinate2D]()
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         //If it is a .gpx file
+    
         var traces = [CLLocationCoordinate2D]()
+        
         
         
         if controller.documentPickerMode == UIDocumentPickerMode.import {
             let myFileUrl = url
                 do {
-                    //contents : contenu de mon fichier
+                    //contents : all the gpx file
                     let contents = try String(contentsOf: url)
                     let data = contents.data(using: String.Encoding.utf8)
                     
@@ -132,7 +158,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
                     }
                     
                 } catch {
-                    //Le contenu ne peut pas être chargé 
+                    //Can't load content (if this is a .gpx but content is =! GPX)
                     
                 
                 }

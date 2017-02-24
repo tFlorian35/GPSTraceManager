@@ -9,7 +9,7 @@
 import CloudKit
 import UIKit
 
-class SportClass: NSObject {
-    var recordID : CKRecordID?
-    var SDesiniation : String!
+class SportClass {
+    //var recordID : CKRecordID?
+    var SDesiniation : String = ""
 }

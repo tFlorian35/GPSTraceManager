@@ -31,6 +31,7 @@
 		17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F91E48818500B4A3C9 /* Error.swift */; };
 		17AEE1FF1E48818500B4A3C9 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1FA1E48818500B4A3C9 /* Options.swift */; };
 		17AEE2001E48818500B4A3C9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1FB1E48818500B4A3C9 /* Parser.swift */; };
+		17F729271E60E46F006B68D6 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F729261E60E46F006B68D6 /* extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		17AEE1F91E48818500B4A3C9 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		17AEE1FA1E48818500B4A3C9 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		17AEE1FB1E48818500B4A3C9 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		17F729261E60E46F006B68D6 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				17405CA11E55A6CE00C905EA /* Images */,
 				175477271E39EB3B00536B68 /* Main.storyboard */,
 				1754772F1E39EB3B00536B68 /* LaunchScreen.storyboard */,
+				17F729261E60E46F006B68D6 /* extensions.swift */,
 				175477231E39EB3B00536B68 /* AppDelegate.swift */,
 				175477251E39EB3B00536B68 /* ViewController.swift */,
 				1746A0D01E5B94D000FDF316 /* Trace */,
@@ -380,6 +383,7 @@
 				175477261E39EB3B00536B68 /* ViewController.swift in Sources */,
 				17405CA01E55A17900C905EA /* TableViewCellEquipementList.swift in Sources */,
 				175477241E39EB3B00536B68 /* AppDelegate.swift in Sources */,
+				17F729271E60E46F006B68D6 /* extensions.swift in Sources */,
 				1754772C1E39EB3B00536B68 /* testiCloud.xcdatamodeld in Sources */,
 				176E0B7E1E4CB0CE00150D0E /* TableViewCellSportList.swift in Sources */,
 				17AEE2001E48818500B4A3C9 /* Parser.swift in Sources */,
