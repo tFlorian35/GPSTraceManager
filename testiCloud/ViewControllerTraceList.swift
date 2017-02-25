@@ -103,21 +103,16 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
     //Action when slide on the cell
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Supprimer") {action, index in
-            func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-                return 0.0
-            }
             let database = CKContainer.default().publicCloudDatabase
             
             print("Delete pressed")
-            let recName = self.DBTabTrace[indexPath.row].TTitre
+            let recName = self.DBTabTrace[indexPath.row].TTitre!
             print(recName)
-            database.delete(withRecordID: CKRecordID(recordName: recName!), completionHandler: {recordID, error in
+            database.delete(withRecordID: CKRecordID(recordName: recName), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
             })
-            
-            
-            
         }
+
         
         return [delete]
         

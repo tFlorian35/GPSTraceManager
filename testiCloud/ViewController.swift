@@ -115,11 +115,18 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         return self.DBSportList.count
         
     }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) -> String? {
         
         let selectedValue = self.DBSportList[row].SDesiniation
         print(selectedValue)
+        return selectedValue
     }
+    
+
+    
+    
     
     
     var boundaries = [CLLocationCoordinate2D]()
@@ -216,7 +223,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         let tmpImageTraceUrl = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
         do{
             try tmpImageTrace!.write(to: tmpImageTraceUrl!)
-            
+        
         }catch let error as Error{
             print("error")
             return
@@ -238,12 +245,17 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         let TabAsCK = CLLocTrace as CKRecordValue
         
         
+        let delegate: UIPickerViewDelegate? = pickerView.delegate
+        let titleOptional: String? = delegate?.pickerView!(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
+        let pickerValue = titleOptional! as CKRecordValue
         
+        //let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
         let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
         let newTrace = CKRecord(recordType: "Trace", recordID: TestRecordID)
     
         newTrace["TTitre"] = TraceTitre
-        newTrace["TTrace"] = TabAsCK
+        //newTrace["TTrace"] = TabAsCK
+        newTrace["TSportAssocie"] = pickerValue
         newTrace["TImage"] = CKAsset(fileURL: tmpImageTraceUrl!)
         
         database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
