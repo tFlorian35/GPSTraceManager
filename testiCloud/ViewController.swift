@@ -250,7 +250,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         let pickerValue = titleOptional! as CKRecordValue
         
         //let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
-        let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
+        let TestRecordID = CKRecordID(recordName: TraceTitre as! String)
         let newTrace = CKRecord(recordType: "Trace", recordID: TestRecordID)
     
         newTrace["TTitre"] = TraceTitre

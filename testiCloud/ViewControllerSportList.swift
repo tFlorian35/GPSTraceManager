@@ -14,6 +14,7 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
 
 
     @IBOutlet weak var tableViewSport: UITableView!
+    
     var tField: UITextField!
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
@@ -96,6 +97,24 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
         let cell = tableViewSport.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellSportList
         //cell.accessoryType = .disclosureIndicator
         cell.SportName.text = DBTabSports[indexPath.row].SDesiniation
+        
+        //Design
+        cell.selectionStyle = .none
+        
+        cell.contentView.backgroundColor = UIColor.clear
+        
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 50))
+        
+        whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
+        whiteRoundedView.layer.masksToBounds = false
+        whiteRoundedView.layer.cornerRadius = 2.0
+        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        whiteRoundedView.layer.shadowOpacity = 0.2
+        
+        cell.contentView.addSubview(whiteRoundedView)
+        cell.contentView.sendSubview(toBack: whiteRoundedView)
+        
+        
         return cell
     }
     
@@ -110,11 +129,15 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
             database.delete(withRecordID: CKRecordID(recordName: recName), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
             })
+            
+        
         }
         
         return [delete]
         
     }
+    
+    
     
     //Add nex sport into db
     @IBAction func addSport(_ sender: Any) {
