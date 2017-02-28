@@ -17,4 +17,9 @@ class TraceClass: NSObject {
     var TTitre : String!
     var TTrace : [CLLocation]!
     var TImage : UIImage!
+    
+    var TDate : String!
+    var TEquipementsAssocie:[String]!
+    var TSport:String!
+    
 }

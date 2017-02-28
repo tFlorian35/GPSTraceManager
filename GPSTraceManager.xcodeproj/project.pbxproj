@@ -31,6 +31,10 @@
 		17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F91E48818500B4A3C9 /* Error.swift */; };
 		17AEE1FF1E48818500B4A3C9 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1FA1E48818500B4A3C9 /* Options.swift */; };
 		17AEE2001E48818500B4A3C9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1FB1E48818500B4A3C9 /* Parser.swift */; };
+		17BF22851E62E17100BE7912 /* ViewControllerAssocEquipements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF22841E62E17100BE7912 /* ViewControllerAssocEquipements.swift */; };
+		17BF22871E64268600BE7912 /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF22861E64268600BE7912 /* ViewControllerHome.swift */; };
+		17BF22891E643B2900BE7912 /* TableViewCellAssocEquipement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF22881E643B2900BE7912 /* TableViewCellAssocEquipement.swift */; };
+		17BF228B1E64DA3B00BE7912 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF228A1E64DA3B00BE7912 /* Toast.swift */; };
 		17F729271E60E46F006B68D6 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F729261E60E46F006B68D6 /* extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +88,10 @@
 		17AEE1F91E48818500B4A3C9 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		17AEE1FA1E48818500B4A3C9 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		17AEE1FB1E48818500B4A3C9 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		17BF22841E62E17100BE7912 /* ViewControllerAssocEquipements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAssocEquipements.swift; sourceTree = "<group>"; };
+		17BF22861E64268600BE7912 /* ViewControllerHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
+		17BF22881E643B2900BE7912 /* TableViewCellAssocEquipement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellAssocEquipement.swift; sourceTree = "<group>"; };
+		17BF228A1E64DA3B00BE7912 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		17F729261E60E46F006B68D6 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,10 +183,14 @@
 		175477221E39EB3B00536B68 /* testiCloud */ = {
 			isa = PBXGroup;
 			children = (
+				17BF22841E62E17100BE7912 /* ViewControllerAssocEquipements.swift */,
+				17BF228A1E64DA3B00BE7912 /* Toast.swift */,
+				17BF22881E643B2900BE7912 /* TableViewCellAssocEquipement.swift */,
 				1760326B1E4F877000D294DD /* AEXML */,
 				175477541E39EDCF00536B68 /* testiCloud.entitlements */,
 				17405CA11E55A6CE00C905EA /* Images */,
 				175477271E39EB3B00536B68 /* Main.storyboard */,
+				17BF22861E64268600BE7912 /* ViewControllerHome.swift */,
 				1754772F1E39EB3B00536B68 /* LaunchScreen.storyboard */,
 				17F729261E60E46F006B68D6 /* extensions.swift */,
 				175477231E39EB3B00536B68 /* AppDelegate.swift */,
@@ -391,10 +403,14 @@
 				17405C9C1E559C1A00C905EA /* equipement.swift in Sources */,
 				175B6C5E1E5F9F35002B3836 /* TableViewCellTraceList.swift in Sources */,
 				17AEE1FE1E48818500B4A3C9 /* Error.swift in Sources */,
+				17BF22891E643B2900BE7912 /* TableViewCellAssocEquipement.swift in Sources */,
 				176E0B7C1E4CAC6E00150D0E /* ViewControllerSportList.swift in Sources */,
+				17BF22851E62E17100BE7912 /* ViewControllerAssocEquipements.swift in Sources */,
+				17BF22871E64268600BE7912 /* ViewControllerHome.swift in Sources */,
 				17405C9A1E5596E800C905EA /* ViewControllerEquipementList.swift in Sources */,
 				1746A0D21E5B97F300FDF316 /* trace.swift in Sources */,
 				17AEE1FD1E48818500B4A3C9 /* Element.swift in Sources */,
+				17BF228B1E64DA3B00BE7912 /* Toast.swift in Sources */,
 				17AEE1FF1E48818500B4A3C9 /* Options.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,6 +15,8 @@ class TableViewCellTraceList: UITableViewCell {
     @IBOutlet weak var nomTrace: UILabel!
     @IBOutlet weak var sportTrace: UILabel!
     @IBOutlet weak var dateTrace: UILabel!
+    @IBOutlet weak var tvEqpts: UITextView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

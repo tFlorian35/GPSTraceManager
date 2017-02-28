@@ -44,7 +44,8 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
         let query = CKQuery(recordType: "Trace", predicate: predicate)
         
         let op = CKQueryOperation(query: query)
-        op.desiredKeys = ["TTitre", "TImage"]
+        op.desiredKeys = ["TTitre", "TImage", "TDate", "TSportAssocie", "TEquipementsAssocie" ]
+        
         var newTrace = [TraceClass]()
         
         op.recordFetchedBlock = {record in
@@ -52,6 +53,9 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
             lesTraces.recordID = record.recordID
             
             lesTraces.TTitre = record["TTitre"] as! String!
+            lesTraces.TSport = record["TSport"] as! String!
+            lesTraces.TDate = record["TDate"] as! String!
+            lesTraces.TEquipementsAssocie = record["TEquipementsAssocie"] as! [String]!
             
             if let photoAsset = record.value(forKey: "TImage") as? CKAsset{
                 lesTraces.TImage = UIImage(data: NSData(contentsOf: photoAsset.fileURL)! as Data)
@@ -60,6 +64,8 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
             
             
             newTrace.append(lesTraces)
+            
+            print(newTrace)
             
             
         }
@@ -95,6 +101,26 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
         
         CellT.imageTrace.image = DBTabTrace[indexPath.row].TImage
         CellT.nomTrace.text = DBTabTrace[indexPath.row].TTitre
+        CellT.dateTrace.text = DBTabTrace[indexPath.row].TDate
+        CellT.sportTrace.text = DBTabTrace[indexPath.row].TSport
+        
+        var i:String = ""
+        if DBTabTrace[indexPath.row].TEquipementsAssocie != nil{
+            for element in DBTabTrace[indexPath.row].TEquipementsAssocie{
+                i += "\(element) \n"
+                
+                CellT.tvEqpts.text = i
+            }
+            
+        }else{
+            CellT.tvEqpts.text = "Vous n'avez pas associé d'équipements à cette trace"
+        }
+        
+        
+        
+        
+        
+        
         
         
         return CellT

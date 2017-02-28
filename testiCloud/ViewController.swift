@@ -16,8 +16,11 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     @IBOutlet weak var displayMap: MKMapView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
+    
     @IBOutlet weak var UserTraceName: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var pickerViewDate: UIDatePicker!
+    
     
     @IBOutlet weak var testImg: UIImageView!
     
@@ -117,7 +120,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
     }
     
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) -> String? {
+    private func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) -> String? {
         
         let selectedValue = self.DBSportList[row].SDesiniation
         print(selectedValue)
@@ -208,7 +211,6 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         
 }
     
-    
     @IBAction func UserValidImport(_ sender: Any) {
         
         //Capture d'écran de la map
@@ -220,7 +222,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         
         //Je sauvegarde l'image temporairement afin de lui atribuer une URL pour sauvegarde dans CK
         let tmpImageTrace = UIImageJPEGRepresentation(imageTrace, 0.5)
-        let tmpImageTraceUrl = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
+        var tmpImageTraceUrl = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
         do{
             try tmpImageTrace!.write(to: tmpImageTraceUrl!)
         
@@ -233,39 +235,47 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         self.self.testImg.image = imageTrace
         
         
-        print(CLLocTrace)
-        /*************
-        Ajout d'un tableau de trace a la bdd
-        *************/
-        let uniqueId = arc4random_uniform(99999)
-        
-        let database = CKContainer.default().publicCloudDatabase
-    
-        let TraceTitre = UserTraceName.text as! CKRecordValue
-        let TabAsCK = CLLocTrace as CKRecordValue
         
         
-        let delegate: UIPickerViewDelegate? = pickerView.delegate
-        let titleOptional: String? = delegate?.pickerView!(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
-        let pickerValue = titleOptional! as CKRecordValue
         
-        //let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
-        let TestRecordID = CKRecordID(recordName: TraceTitre as! String)
-        let newTrace = CKRecord(recordType: "Trace", recordID: TestRecordID)
-    
-        newTrace["TTitre"] = TraceTitre
-        //newTrace["TTrace"] = TabAsCK
-        newTrace["TSportAssocie"] = pickerValue
-        newTrace["TImage"] = CKAsset(fileURL: tmpImageTraceUrl!)
-        
-        database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
-            if error != nil{
-                print("Record OK \(record)")
-            }
-        })
-        
-        print("OKImportSucess")
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //DEC : Date
+        var TDate : String = ""
+        if pickerViewDate != nil{
+            let userDate = pickerViewDate.datePickerMode = UIDatePickerMode.date
+            var dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM yyyy"
+            TDate = dateFormatter.string(from: pickerViewDate.date)
+        }
+        
+        
+        let delegate: UIPickerViewDelegate? = pickerView?.delegate
+        let titleOptional: String? = delegate?.pickerView!(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
+        let pickerValue = titleOptional
+        
+        
+        
+        
+        if segue.identifier == "ViewControllerAssocEquipements"{
+            
+            
+            
+            // get a reference to the second view controller
+            let secondViewController = segue.destination as! ViewControllerAssocEquipements
+            // set a variable in the second view controller with the String to pass
+            secondViewController.traceName = UserTraceName.text!
+            secondViewController.traceDate = TDate as String!
+            secondViewController.traceSport = pickerValue as String!
+            secondViewController.traceImage = self.testImg.image!
+        }
+        
+        
+        
+    }
+    
   
     @IBAction func `import` (_ sender: Any) {
        
