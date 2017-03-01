@@ -163,7 +163,7 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
         /*************
          Ajout d'un tableau de trace a la bdd
          *************/
-        let uniqueId = arc4random_uniform(99999)
+        _ = arc4random_uniform(99999)
         
         let database = CKContainer.default().publicCloudDatabase
         //let TabAsCK = CLLocTrace as CKRecordValue
@@ -185,12 +185,12 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
         //Je sauvegarde l'image temporairement afin de lui atribuer une URL pour sauvegarde dans CK
         
         let tmpImageTrace = UIImageJPEGRepresentation(TraceImage, 1)
-        var tmpImageTraceUrl = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
+        let tmpImageTraceUrl = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
         do{
             try tmpImageTrace!.write(to: tmpImageTraceUrl!)
             
-        }catch let error as Error{
-            print("error")
+        }catch let error as NSError{
+            print("error \(error)")
             return
         }
 

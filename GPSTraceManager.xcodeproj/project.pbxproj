@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1737EC931E65A17500A66F8D /* sport.png in Resources */ = {isa = PBXBuildFile; fileRef = 1737EC911E65A17500A66F8D /* sport.png */; };
+		1737EC941E65A17500A66F8D /* eqpt.png in Resources */ = {isa = PBXBuildFile; fileRef = 1737EC921E65A17500A66F8D /* eqpt.png */; };
 		17405C9A1E5596E800C905EA /* ViewControllerEquipementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17405C991E5596E800C905EA /* ViewControllerEquipementList.swift */; };
 		17405C9C1E559C1A00C905EA /* equipement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17405C9B1E559C1A00C905EA /* equipement.swift */; };
 		17405CA01E55A17900C905EA /* TableViewCellEquipementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17405C9F1E55A17900C905EA /* TableViewCellEquipementList.swift */; };
@@ -35,6 +37,11 @@
 		17BF22871E64268600BE7912 /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF22861E64268600BE7912 /* ViewControllerHome.swift */; };
 		17BF22891E643B2900BE7912 /* TableViewCellAssocEquipement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF22881E643B2900BE7912 /* TableViewCellAssocEquipement.swift */; };
 		17BF228B1E64DA3B00BE7912 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF228A1E64DA3B00BE7912 /* Toast.swift */; };
+		17BF228D1E65848200BE7912 /* squash-793062.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17BF228C1E65848200BE7912 /* squash-793062.jpg */; };
+		17BF22901E65983300BE7912 /* iPhone7Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BF228F1E65983300BE7912 /* iPhone7Back.png */; };
+		17BF22921E6599E800BE7912 /* Canvas 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BF22911E6599E800BE7912 /* Canvas 1.png */; };
+		17BF22941E659B0E00BE7912 /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BF22931E659B0E00BE7912 /* Add.png */; };
+		17BF22961E659CEE00BE7912 /* voir.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BF22951E659CEE00BE7912 /* voir.png */; };
 		17F729271E60E46F006B68D6 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F729261E60E46F006B68D6 /* extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1737EC911E65A17500A66F8D /* sport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sport.png; sourceTree = "<group>"; };
+		1737EC921E65A17500A66F8D /* eqpt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eqpt.png; sourceTree = "<group>"; };
 		17405C991E5596E800C905EA /* ViewControllerEquipementList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerEquipementList.swift; sourceTree = "<group>"; };
 		17405C9B1E559C1A00C905EA /* equipement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = equipement.swift; sourceTree = "<group>"; };
 		17405C9F1E55A17900C905EA /* TableViewCellEquipementList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellEquipementList.swift; sourceTree = "<group>"; };
@@ -92,6 +101,11 @@
 		17BF22861E64268600BE7912 /* ViewControllerHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
 		17BF22881E643B2900BE7912 /* TableViewCellAssocEquipement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellAssocEquipement.swift; sourceTree = "<group>"; };
 		17BF228A1E64DA3B00BE7912 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		17BF228C1E65848200BE7912 /* squash-793062.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "squash-793062.jpg"; sourceTree = "<group>"; };
+		17BF228F1E65983300BE7912 /* iPhone7Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone7Back.png; sourceTree = "<group>"; };
+		17BF22911E6599E800BE7912 /* Canvas 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Canvas 1.png"; sourceTree = "<group>"; };
+		17BF22931E659B0E00BE7912 /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Add.png; sourceTree = "<group>"; };
+		17BF22951E659CEE00BE7912 /* voir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voir.png; sourceTree = "<group>"; };
 		17F729261E60E46F006B68D6 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +159,13 @@
 		17405CA11E55A6CE00C905EA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				17BF22931E659B0E00BE7912 /* Add.png */,
+				17BF22911E6599E800BE7912 /* Canvas 1.png */,
+				1737EC911E65A17500A66F8D /* sport.png */,
+				1737EC921E65A17500A66F8D /* eqpt.png */,
+				17BF22951E659CEE00BE7912 /* voir.png */,
+				17BF228F1E65983300BE7912 /* iPhone7Back.png */,
+				17BF228C1E65848200BE7912 /* squash-793062.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -162,9 +183,9 @@
 		175477171E39EB3A00536B68 = {
 			isa = PBXGroup;
 			children = (
-				175477221E39EB3B00536B68 /* testiCloud */,
-				1754773A1E39EB3B00536B68 /* testiCloudTests */,
-				175477451E39EB3B00536B68 /* testiCloudUITests */,
+				175477221E39EB3B00536B68 /* GPSTraceManager */,
+				1754773A1E39EB3B00536B68 /* GPSTraceManagerTests */,
+				175477451E39EB3B00536B68 /* GPSTraceManagerUITests */,
 				175477211E39EB3A00536B68 /* Products */,
 				175477551E39F61900536B68 /* Frameworks */,
 			);
@@ -180,7 +201,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		175477221E39EB3B00536B68 /* testiCloud */ = {
+		175477221E39EB3B00536B68 /* GPSTraceManager */ = {
 			isa = PBXGroup;
 			children = (
 				17BF22841E62E17100BE7912 /* ViewControllerAssocEquipements.swift */,
@@ -202,24 +223,27 @@
 				175477321E39EB3B00536B68 /* Info.plist */,
 				1754772A1E39EB3B00536B68 /* testiCloud.xcdatamodeld */,
 			);
+			name = GPSTraceManager;
 			path = testiCloud;
 			sourceTree = "<group>";
 		};
-		1754773A1E39EB3B00536B68 /* testiCloudTests */ = {
+		1754773A1E39EB3B00536B68 /* GPSTraceManagerTests */ = {
 			isa = PBXGroup;
 			children = (
 				1754773B1E39EB3B00536B68 /* testiCloudTests.swift */,
 				1754773D1E39EB3B00536B68 /* Info.plist */,
 			);
+			name = GPSTraceManagerTests;
 			path = testiCloudTests;
 			sourceTree = "<group>";
 		};
-		175477451E39EB3B00536B68 /* testiCloudUITests */ = {
+		175477451E39EB3B00536B68 /* GPSTraceManagerUITests */ = {
 			isa = PBXGroup;
 			children = (
 				175477461E39EB3B00536B68 /* testiCloudUITests.swift */,
 				175477481E39EB3B00536B68 /* Info.plist */,
 			);
+			name = GPSTraceManagerUITests;
 			path = testiCloudUITests;
 			sourceTree = "<group>";
 		};
@@ -362,7 +386,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17BF22921E6599E800BE7912 /* Canvas 1.png in Resources */,
+				1737EC941E65A17500A66F8D /* eqpt.png in Resources */,
+				1737EC931E65A17500A66F8D /* sport.png in Resources */,
 				175477311E39EB3B00536B68 /* LaunchScreen.storyboard in Resources */,
+				17BF22941E659B0E00BE7912 /* Add.png in Resources */,
+				17BF22961E659CEE00BE7912 /* voir.png in Resources */,
+				17BF228D1E65848200BE7912 /* squash-793062.jpg in Resources */,
+				17BF22901E65983300BE7912 /* iPhone7Back.png in Resources */,
 				1754772E1E39EB3B00536B68 /* Assets.xcassets in Resources */,
 				175477291E39EB3B00536B68 /* Main.storyboard in Resources */,
 			);

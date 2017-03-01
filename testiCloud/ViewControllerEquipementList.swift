@@ -140,7 +140,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
             
             print("Delete pressed")
             let recName = self.DBTabEquipements[indexPath.row].Edesignation
-            print(recName)
+            print(recName as String!)
             database.delete(withRecordID: CKRecordID(recordName: recName!), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
             })
