@@ -18,4 +18,5 @@ class EquipementsClass: NSObject {
     var Edesignation : String?
     var Eetat : String?
     var Eimage : UIImage?
+    var EUtilisation : String?
 }

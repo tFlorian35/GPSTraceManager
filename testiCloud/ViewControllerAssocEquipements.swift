@@ -209,9 +209,28 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
      
         database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
             if error != nil{
-                print("Record OK \(record)")
+                print("ok")
+                let alertController = UIAlertController(title: "Ok ! ", message: "Votre trace a bien été importée", preferredStyle: UIAlertControllerStyle.alert)
+                
+                let okAction = UIAlertAction(title: "Continuer", style: UIAlertActionStyle.default) {
+                    (result : UIAlertAction) -> Void in
+                    let vcHome : AnyObject! = self.storyboard!.instantiateViewController(withIdentifier: "mainSB")
+                    self.show(vcHome as! UIViewController, sender: vcHome)
+                    
+                }
+                
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+
+            }else{
+                print("nook")
             }
         })
+        
+        
+        
+
+        
         
         
     

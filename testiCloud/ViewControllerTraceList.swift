@@ -28,6 +28,16 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
         }else{
             tableViewTraces.addSubview(refreshControl)
         }
+        
+    
+        
+        if(traitCollection.forceTouchCapability == .available){
+            registerForPreviewing(with: self as! UIViewControllerPreviewingDelegate, sourceView: view)
+            print("3DTOUCH AVAILABLE")
+        }else{
+            print("3DTOUCH is not available")
+        
+        }
     
     }
     
@@ -91,6 +101,8 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
         
     }
     
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.DBTabTrace.count
     }
@@ -103,6 +115,9 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
         CellT.nomTrace.text = DBTabTrace[indexPath.row].TTitre
         CellT.dateTrace.text = DBTabTrace[indexPath.row].TDate
         CellT.sportTrace.text = DBTabTrace[indexPath.row].TSport
+        
+        
+        
         
         var i:String = ""
         if DBTabTrace[indexPath.row].TEquipementsAssocie != nil{
@@ -118,6 +133,21 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
         
         
         
+        //Design
+        CellT.selectionStyle = .none
+        
+        CellT.contentView.backgroundColor = UIColor.clear
+        
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 201))
+        
+        whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
+        whiteRoundedView.layer.masksToBounds = false
+        whiteRoundedView.layer.cornerRadius = 2.0
+        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        whiteRoundedView.layer.shadowOpacity = 0.2
+        
+        CellT.contentView.addSubview(whiteRoundedView)
+        CellT.contentView.sendSubview(toBack: whiteRoundedView)
         
         
         
@@ -126,23 +156,39 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
         return CellT
     }
     
+    
     //Action when slide on the cell
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Supprimer") {action, index in
             let database = CKContainer.default().publicCloudDatabase
+    
+            
+            
+            
             
             print("Delete pressed")
             let recName = self.DBTabTrace[indexPath.row].TTitre!
             print(recName)
             database.delete(withRecordID: CKRecordID(recordName: recName), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
+                
+                if error == nil {
+                    print("NoError")
+                    self.tableViewTraces.reloadData()
+                }
             })
+            
+            
+    
+    
         }
 
         
         return [delete]
         
     }
+    
+    
     
     
     
