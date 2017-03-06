@@ -18,9 +18,14 @@ class TableViewCellTraceList: UITableViewCell {
     @IBOutlet weak var tvEqpts: UITextView!
     
     
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        
     }
     
     

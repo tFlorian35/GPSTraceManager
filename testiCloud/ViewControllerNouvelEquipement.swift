@@ -60,13 +60,13 @@ class ViewControllerNouvelEquipement: UIViewController, UIImagePickerControllerD
     @IBAction func EnregistreNouvelEquipement(_ sender: Any) {
         
         //DEC : Nom
-        var ENom : String = nomEquipement.text!
+        let ENom : String = nomEquipement.text!
         
         //DEC : Date
-        let userDate = recupDate.datePickerMode = UIDatePickerMode.date
-        var dateFormatter = DateFormatter()
+        _ = recupDate.datePickerMode = UIDatePickerMode.date
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
-        var EDate = dateFormatter.string(from: recupDate.date)
+        let EDate = dateFormatter.string(from: recupDate.date)
         
         //DEC : Etat equpt
         var EEtat : String = ""
@@ -94,8 +94,8 @@ class ViewControllerNouvelEquipement: UIViewController, UIImagePickerControllerD
         do{
             try tmpImage!.write(to: imageUrl!)
             
-        }catch let error as Error{
-            print("error")
+        }catch let error as NSError{
+            print("error \(error)")
             return
         }
         
@@ -119,6 +119,7 @@ class ViewControllerNouvelEquipement: UIViewController, UIImagePickerControllerD
         newEquipement["EdateAchat"] = edate
         newEquipement["Edesignation"] = enom
         newEquipement["Eetat"] = eetat
+        newEquipement["ENbUtilisations"] = 0 as CKRecordValue?
         newEquipement["Eimage"] = CKAsset(fileURL:imageUrl!)
     
         

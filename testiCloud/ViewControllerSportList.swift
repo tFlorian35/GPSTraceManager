@@ -165,14 +165,16 @@ class ViewControllerSportList: ViewController, UITableViewDataSource, UITableVie
             
             //Begin DB Stuff
             //let uniqueId = arc4random_uniform(99999)
-            let database = CKContainer.default().publicCloudDatabase
+            //let database = CKContainer.default().privateCloudDatabase
+            
             let SportName = self.tField.text as! CKRecordValue
+            
             let SportRecordID = CKRecordID(recordName: "\(SportName)")
-            let newTrace = CKRecord(recordType: "Sport", recordID: SportRecordID)
+            let newSport = CKRecord(recordType: "Sport", recordID: SportRecordID)
             
-            newTrace["SDesiniation"] = SportName
+            newSport["SDesiniation"] = SportName
             
-            database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
+            PRIVATEDB.save(newSport, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
                 if error != nil{
                     print("Record OK \(record)")
                 }

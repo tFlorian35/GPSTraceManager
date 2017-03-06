@@ -218,16 +218,16 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         
         let myRect = CGRect(x: 0, y: 0, width: displayMap.bounds.size.width, height: displayMap.bounds.size.height)
         self.displayMap.drawHierarchy(in: myRect, afterScreenUpdates: true)
-        var imageTrace:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        let imageTrace:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         
         //Je sauvegarde l'image temporairement afin de lui atribuer une URL pour sauvegarde dans CK
         let tmpImageTrace = UIImageJPEGRepresentation(imageTrace, 0.5)
-        var tmpImageTraceUrl = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
+        let tmpImageTraceUrl = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
         do{
             try tmpImageTrace!.write(to: tmpImageTraceUrl!)
         
-        }catch let error as Error{
-            print("error")
+        }catch let error as NSError{
+            print("error \(error)")
             return
         }
         
@@ -240,13 +240,14 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //DEC : Date
         var TDate : String = ""
         if pickerViewDate != nil{
-            let userDate = pickerViewDate.datePickerMode = UIDatePickerMode.date
-            var dateFormatter = DateFormatter()
+            _ = pickerViewDate.datePickerMode = UIDatePickerMode.date
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd MMM yyyy"
             TDate = dateFormatter.string(from: pickerViewDate.date)
         }
@@ -301,7 +302,7 @@ class ViewController: UIViewController, UIDocumentPickerDelegate, XMLParserDeleg
         
         let okAction = UIAlertAction(title: "Impotrer une trace", style: UIAlertActionStyle.default) {
             (result : UIAlertAction) -> Void in
-            self.`import`(Any)
+            self.`import`(Any.self)
         }
         
         alertController.addAction(DestructiveAction)

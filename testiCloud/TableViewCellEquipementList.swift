@@ -20,7 +20,7 @@ class TableViewCellEquipementList: UITableViewCell {
    
     @IBOutlet weak var commentaire: UILabel!
     
-    
+    @IBOutlet weak var nbutilisations: UILabel!
     
     
     

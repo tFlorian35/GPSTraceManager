@@ -51,7 +51,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
         let query = CKQuery(recordType: "Equipement", predicate: predicate)
         
         let op = CKQueryOperation(query: query)
-        op.desiredKeys = ["Ecommentaire", "EdateAchat", "Edesignation", "Eetat", "Eimage"]
+        op.desiredKeys = ["Ecommentaire", "EdateAchat", "Edesignation", "Eetat", "Eimage", "ENbUtilisations"]
         var newEquipement = [EquipementsClass]()
         
         op.recordFetchedBlock = {record in
@@ -62,6 +62,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
             lesEquipements.EdateAchat = record["EdateAchat"] as! String!
             lesEquipements.Edesignation = record.value(forKey: "Edesignation") as! String?
             lesEquipements.Eetat = record["Eetat"] as! String!
+            lesEquipements.ENbUtilisations = record["ENbUtilisations"] as! Int!
             
         
             if let photoAsset = record.value(forKey: "Eimage") as? CKAsset{
@@ -78,11 +79,10 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
         op.queryCompletionBlock = { [unowned self] (cursor, error) in
             DispatchQueue.main.async {
                 if error == nil {
-                    //ViewController.isDirty = false
                     self.DBTabEquipements = newEquipement
                     self.tableViewEquipements.reloadData()
                 }else{
-                    let ac = UIAlertController(title: "Fetch failed", message: "There was a problem fetching the list of whistles; please try again: \(error!.localizedDescription)", preferredStyle: .alert)
+                    let ac = UIAlertController(title: "Erreur de chargement", message: "Impossible de charger vos équipements, ressayez \(error!.localizedDescription)", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))
                     self.present(ac, animated: true)
                 }
@@ -90,10 +90,8 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
         }
         
         //Operation on the public DB
-        CKContainer.default().publicCloudDatabase.add(op)
-        
-        
-        
+        PUBLiCDB.add(op)
+   
     }
     
     
@@ -110,6 +108,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
         cellE.commentaire.text = DBTabEquipements[indexPath.row].Ecommentaire
         cellE.dateachat.text = DBTabEquipements[indexPath.row].EdateAchat
         cellE.equipementImage.image = DBTabEquipements[indexPath.row].Eimage
+        cellE.nbutilisations.text = String(describing: DBTabEquipements[indexPath.row].ENbUtilisations!)
         
         //Design
         cellE.selectionStyle = .none
@@ -136,12 +135,12 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
             func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
                 return 0.0
             }
-            let database = CKContainer.default().publicCloudDatabase
+            
             
             print("Delete pressed")
             let recName = self.DBTabEquipements[indexPath.row].Edesignation
-            print(recName)
-            database.delete(withRecordID: CKRecordID(recordName: recName!), completionHandler: {recordID, error in
+            print(recName as String!)
+            PUBLiCDB.delete(withRecordID: CKRecordID(recordName: recName!), completionHandler: {recordID, error in
                 NSLog("OK or \(error)")
             })
             
@@ -152,52 +151,5 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
         return [delete]
         
     }
-    
-    //Add nex sport into db
-    /*@IBAction func addSport(_ sender: Any) {
-        
-        
-        func configurationTextField(textField: UITextField!)
-        {
-            print("generating the TextField")
-            textField.placeholder = "Entrez votre sport"
-            tField = textField
-        }
-        
-        func handleCancel(alertView: UIAlertAction!)
-        {
-            print("Annulé !!")
-        }
-        
-        let alert = UIAlertController(title: "Nouveau sport", message: "", preferredStyle: .alert)
-        
-        alert.addTextField(configurationHandler: configurationTextField)
-        alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler:handleCancel))
-        alert.addAction(UIAlertAction(title: "Ajouter", style: .default, handler:{ (UIAlertAction) in
-            print("Ajout réussie !!")
-            print("Item : \(self.tField.text!)")
-            
-            //Begin DB Stuff
-            //let uniqueId = arc4random_uniform(99999)
-            let database = CKContainer.default().publicCloudDatabase
-            let SportName = self.tField.text as! CKRecordValue
-            let SportRecordID = CKRecordID(recordName: "\(SportName)")
-            let newTrace = CKRecord(recordType: "Sport", recordID: SportRecordID)
-            
-            newTrace["SDesiniation"] = SportName
-            
-            database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
-                if error != nil{
-                    print("Record OK \(record)")
-                }
-            })
-            
-            //End DB Stuff
-        }))
-        self.present(alert, animated: true, completion: {
-            print("completion block")
-        })
-        
-    }*/
-    
+
 }
