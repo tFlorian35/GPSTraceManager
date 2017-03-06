@@ -119,6 +119,7 @@ class ViewControllerNouvelEquipement: UIViewController, UIImagePickerControllerD
         newEquipement["EdateAchat"] = edate
         newEquipement["Edesignation"] = enom
         newEquipement["Eetat"] = eetat
+        newEquipement["ENbUtilisations"] = 0 as CKRecordValue?
         newEquipement["Eimage"] = CKAsset(fileURL:imageUrl!)
     
         

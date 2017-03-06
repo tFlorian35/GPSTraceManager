@@ -517,7 +517,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GPSTraceManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TraceSB" id="BYZ-38-t0r" customClass="ViewController" customModule="GPSTraceManager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -706,7 +706,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zd9-rF-wPw" id="F7C-bT-LU9">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="137.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePz-mc-rLZ">
@@ -817,7 +817,7 @@
         <!--View Controller Trace List-->
         <scene sceneID="96s-dU-gVW">
             <objects>
-                <viewController id="m8h-Xb-l43" customClass="ViewControllerTraceList" customModule="GPSTraceManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VoirTraceSB" id="m8h-Xb-l43" customClass="ViewControllerTraceList" customModule="GPSTraceManager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qEB-xw-UCp"/>
                         <viewControllerLayoutGuide type="bottom" id="AX9-dw-pqZ"/>
@@ -861,12 +861,16 @@
                                         <rect key="frame" x="0.0" y="72" width="320" height="221"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3IQ-6K-L4z" id="Wbb-s8-eYT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="221"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="220.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAh-ni-YyU">
                                                     <rect key="frame" x="15" y="8" width="158" height="158"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="05V-gt-ltN" appends="YES" id="GCL-dQ-3kv"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom Trace" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcY-EZ-teP">
                                                     <rect key="frame" x="179" y="8" width="156" height="21"/>
@@ -890,7 +894,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor sit er" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vV-o8-MMc">
-                                                    <rect key="frame" x="179" y="92" width="131" height="100"/>
+                                                    <rect key="frame" x="179" y="92" width="131" height="101"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -916,8 +920,27 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzS-yq-h7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="05V-gt-ltN"/>
             </objects>
             <point key="canvasLocation" x="111" y="-342"/>
+        </scene>
+        <!--Detail Trace Controller-->
+        <scene sceneID="Tnd-qC-Bil">
+            <objects>
+                <viewController id="rZX-kc-Ndb" customClass="DetailTraceController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LIc-jv-CQf"/>
+                        <viewControllerLayoutGuide type="bottom" id="rBg-Yk-NVG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6kL-7T-wRB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mMe-qL-95h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="-336"/>
         </scene>
     </scenes>
     <resources>
@@ -927,8 +950,8 @@
         <image name="voir.png" width="211" height="211"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="umE-Sb-b9w"/>
-        <segue reference="mEQ-BA-Yb2"/>
+        <segue reference="M41-2l-xin"/>
+        <segue reference="G6E-WY-Rk6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

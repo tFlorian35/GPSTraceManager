@@ -207,8 +207,8 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
         newTrace["TEquipementsAssocie"] = TraceEquipements!
         
      
-        database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
-            if error != nil{
+        PUBLiCDB.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
+            if error == nil{
                 print("Trace enregistrée")
                 let alertController = UIAlertController(title: "Ok ! ", message: "Votre trace a bien été importée", preferredStyle: UIAlertControllerStyle.alert)
                 

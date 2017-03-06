@@ -28,6 +28,7 @@
 		1760326D1E4F913600D294DD /* sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1760326C1E4F913500D294DD /* sport.swift */; };
 		176E0B7C1E4CAC6E00150D0E /* ViewControllerSportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176E0B7B1E4CAC6E00150D0E /* ViewControllerSportList.swift */; };
 		176E0B7E1E4CB0CE00150D0E /* TableViewCellSportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176E0B7D1E4CB0CE00150D0E /* TableViewCellSportList.swift */; };
+		177660981E6DD3E500402385 /* DetailTraceControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177660971E6DD3E500402385 /* DetailTraceControllerTableViewController.swift */; };
 		177AA2181E696234003D34B2 /* database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177AA2171E696234003D34B2 /* database.swift */; };
 		17AEE1FC1E48818500B4A3C9 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F71E48818500B4A3C9 /* Document.swift */; };
 		17AEE1FD1E48818500B4A3C9 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEE1F81E48818500B4A3C9 /* Element.swift */; };
@@ -92,6 +93,7 @@
 		1760326C1E4F913500D294DD /* sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sport.swift; sourceTree = "<group>"; };
 		176E0B7B1E4CAC6E00150D0E /* ViewControllerSportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSportList.swift; sourceTree = "<group>"; };
 		176E0B7D1E4CB0CE00150D0E /* TableViewCellSportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellSportList.swift; sourceTree = "<group>"; };
+		177660971E6DD3E500402385 /* DetailTraceControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTraceControllerTableViewController.swift; sourceTree = "<group>"; };
 		177AA2171E696234003D34B2 /* database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = database.swift; sourceTree = "<group>"; };
 		17AEE1F61E48818500B4A3C9 /* AEXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEXML.h; sourceTree = "<group>"; };
 		17AEE1F71E48818500B4A3C9 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				17BF22841E62E17100BE7912 /* ViewControllerAssocEquipements.swift */,
 				17BF228A1E64DA3B00BE7912 /* Toast.swift */,
 				17BF22881E643B2900BE7912 /* TableViewCellAssocEquipement.swift */,
+				177660971E6DD3E500402385 /* DetailTraceControllerTableViewController.swift */,
 				175477541E39EDCF00536B68 /* testiCloud.entitlements */,
 				177AA2171E696234003D34B2 /* database.swift */,
 				1760326B1E4F877000D294DD /* AEXML */,
@@ -447,6 +450,7 @@
 				17AEE1FD1E48818500B4A3C9 /* Element.swift in Sources */,
 				17BF228B1E64DA3B00BE7912 /* Toast.swift in Sources */,
 				17AEE1FF1E48818500B4A3C9 /* Options.swift in Sources */,
+				177660981E6DD3E500402385 /* DetailTraceControllerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

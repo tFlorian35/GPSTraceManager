@@ -14,11 +14,14 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
     var DBTabTrace = [TraceClass]()
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
+    @IBOutlet var gestRcz: UIGestureRecognizer!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableViewTraces.delegate = self
         tableViewTraces.dataSource = self
+        
+
 
         loadTraces()
         
@@ -148,9 +151,6 @@ class ViewControllerTraceList: UIViewController, UITableViewDataSource, UITableV
         
         CellT.contentView.addSubview(whiteRoundedView)
         CellT.contentView.sendSubview(toBack: whiteRoundedView)
-        
-        
-        
         
         
         return CellT
