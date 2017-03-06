@@ -51,7 +51,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
         let query = CKQuery(recordType: "Equipement", predicate: predicate)
         
         let op = CKQueryOperation(query: query)
-        op.desiredKeys = ["Ecommentaire", "EdateAchat", "Edesignation", "Eetat", "Eimage"]
+        op.desiredKeys = ["Ecommentaire", "EdateAchat", "Edesignation", "Eetat", "Eimage", "ENbUtilisations"]
         var newEquipement = [EquipementsClass]()
         
         op.recordFetchedBlock = {record in
@@ -62,6 +62,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
             lesEquipements.EdateAchat = record["EdateAchat"] as! String!
             lesEquipements.Edesignation = record.value(forKey: "Edesignation") as! String?
             lesEquipements.Eetat = record["Eetat"] as! String!
+            lesEquipements.ENbUtilisations = record["ENbUtilisations"] as! Int!
             
         
             if let photoAsset = record.value(forKey: "Eimage") as? CKAsset{
@@ -107,7 +108,7 @@ class ViewControllerEquipementsList: ViewController, UITableViewDataSource, UITa
         cellE.commentaire.text = DBTabEquipements[indexPath.row].Ecommentaire
         cellE.dateachat.text = DBTabEquipements[indexPath.row].EdateAchat
         cellE.equipementImage.image = DBTabEquipements[indexPath.row].Eimage
-        //cellE.nbutilisations.text = DBTabEquipements[indexPath.row].EUtilisation
+        cellE.nbutilisations.text = String(describing: DBTabEquipements[indexPath.row].ENbUtilisations!)
         
         //Design
         cellE.selectionStyle = .none

@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import ObjectiveC
 
 class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
@@ -42,6 +43,7 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
     }
     
     var DBTabEquipements = [EquipementsClass]()
+    var DBTabEquipements2 = [EquipementsClass]()
     //Load the equipements from the database
     func loadEquipements(){
         let predicate = NSPredicate(value: true)
@@ -56,6 +58,8 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
             lesEquipements.recordID = record.recordID
             
             lesEquipements.Ecommentaire = record["Ecommentaire"] as! String!
+            
+            
             lesEquipements.EdateAchat = record["EdateAchat"] as! String!
             lesEquipements.Edesignation = record.value(forKey: "Edesignation") as! String?
             lesEquipements.Eetat = record["Eetat"] as! String!
@@ -160,9 +164,7 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
     
     @IBAction func importTrace(_ sender: Any) {
        
-        /*************
-         Ajout d'un tableau de trace a la bdd
-         *************/
+        print("IMPORT")
         _ = arc4random_uniform(99999)
         
         let database = CKContainer.default().publicCloudDatabase
@@ -179,7 +181,7 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
         let TraceSport = TSport as CKRecordValue!
         let TraceEquipements = TEquipements as CKRecordValue!
         
-
+    
         
         
         //Je sauvegarde l'image temporairement afin de lui atribuer une URL pour sauvegarde dans CK
@@ -191,14 +193,12 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
             
         }catch let error as NSError{
             print("error \(error)")
-            return
+            
         }
 
         //let TestRecordID = CKRecordID(recordName: "RecordN\(uniqueId)")
         let TestRecordID = CKRecordID(recordName: TraceTitre as! String)
         let newTrace = CKRecord(recordType: "Trace", recordID: TestRecordID)
-        
-        //newTrace["TTrace"] = TabAsCK
         
         newTrace["TTitre"] = TraceTitre!
         newTrace["TDate"] = TraceDate!
@@ -209,7 +209,7 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
      
         database.save(newTrace, completionHandler: { (record:CKRecord?, error:Error?) -> Void in
             if error != nil{
-                print("ok")
+                print("Trace enregistrée")
                 let alertController = UIAlertController(title: "Ok ! ", message: "Votre trace a bien été importée", preferredStyle: UIAlertControllerStyle.alert)
                 
                 let okAction = UIAlertAction(title: "Continuer", style: UIAlertActionStyle.default) {
@@ -223,9 +223,95 @@ class ViewControllerAssocEquipements: UIViewController, UITableViewDataSource, U
                 self.present(alertController, animated: true, completion: nil)
 
             }else{
-                print("nook")
+                print("Trace NON enregistrée")
             }
         })
+        
+        
+        for i in tab {
+            
+            //Je récupère la valeur de NB 
+            
+            let predicate = NSPredicate(format:"Edesignation == %@", "\(i)")
+            let query = CKQuery(recordType: "Equipement", predicate: predicate)
+            
+            let op = CKQueryOperation(query: query)
+            op.desiredKeys = ["ENbUtilisations", "Edesignation"]
+            var SelectedEqpts = [EquipementsClass]()
+            
+            op.recordFetchedBlock = {record in
+                let lesEquipements = EquipementsClass()
+                lesEquipements.recordID = record.recordID
+                
+                lesEquipements.ENbUtilisations = record["ENbUtilisations"] as! Int!
+                lesEquipements.Edesignation = record["Edesignation"] as! String!
+                
+                SelectedEqpts.append(lesEquipements)
+                
+                
+            }
+            
+            op.queryCompletionBlock = { [unowned self] (cursor, error) in
+                DispatchQueue.main.async {
+                    if error == nil {
+                        //ViewController.isDirty = false
+                        self.DBTabEquipements2 = SelectedEqpts
+                        
+                        for z in self.DBTabEquipements2{
+                            
+                            var nbUtilisation = z.ENbUtilisations!
+                            print("Le NB d'utilisation : \(z.ENbUtilisations! + 1)")
+                            nbUtilisation = z.ENbUtilisations! + 1
+                            print("L'item : \(z.Edesignation) à été utilisé \(nbUtilisation) fois")
+                            
+                            
+                            let TestRecordID = CKRecordID(recordName: i )
+                            let updateEqpt = CKRecord(recordType: "Equipement", recordID: TestRecordID)
+                            
+                            
+                            updateEqpt["ENbUtilisations"] = nbUtilisation as CKRecordValue?
+                            
+                            var tabRecords = [CKRecord]()
+                            tabRecords.append(updateEqpt)
+                            
+                            
+                            let modify = CKModifyRecordsOperation()
+                            modify.recordsToSave = tabRecords
+                            modify.recordIDsToDelete = nil
+                            
+                            modify.savePolicy = .allKeys
+                            
+                            
+                            modify.modifyRecordsCompletionBlock = { savedRecords, deletedRecordIDs, error in
+                                // deal with conflicts
+                                // set completionHandler of wrapper operation if it's the case
+                                if error == nil {
+                                    print("NB Utilisation mis a jour")
+                                }else{
+                                    print("NB Utilisation NON mis à jour")
+                                }
+                            }
+                            
+                            PUBLiCDB.add(modify)
+                        }
+
+                
+                        
+                    }else{
+                        let ac = UIAlertController(title: "Erreur de chargement", message: "There was a problem fetching the list of whistles; please try again: \(error!.localizedDescription)", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self.present(ac, animated: true)
+                    }
+                }
+            }
+            
+            //Operation on the public DB
+            CKContainer.default().publicCloudDatabase.add(op)
+            
+           
+            
+            
+        }
         
         
         

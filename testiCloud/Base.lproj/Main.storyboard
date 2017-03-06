@@ -890,7 +890,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor sit er" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vV-o8-MMc">
-                                                    <rect key="frame" x="179" y="94" width="133" height="101"/>
+                                                    <rect key="frame" x="179" y="92" width="131" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -927,8 +927,8 @@
         <image name="voir.png" width="211" height="211"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="umE-Sb-b9w"/>
         <segue reference="mEQ-BA-Yb2"/>
-        <segue reference="fXA-oy-UOK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
