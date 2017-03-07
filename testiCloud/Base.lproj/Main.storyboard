@@ -706,7 +706,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zd9-rF-wPw" id="F7C-bT-LU9">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="137.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePz-mc-rLZ">
@@ -817,7 +817,7 @@
         <!--View Controller Trace List-->
         <scene sceneID="96s-dU-gVW">
             <objects>
-                <viewController storyboardIdentifier="VoirTraceSB" id="m8h-Xb-l43" customClass="ViewControllerTraceList" customModule="GPSTraceManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowTraceSB" id="m8h-Xb-l43" customClass="ViewControllerTraceList" customModule="GPSTraceManager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qEB-xw-UCp"/>
                         <viewControllerLayoutGuide type="bottom" id="AX9-dw-pqZ"/>
@@ -861,7 +861,7 @@
                                         <rect key="frame" x="0.0" y="72" width="320" height="221"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3IQ-6K-L4z" id="Wbb-s8-eYT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="220.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAh-ni-YyU">
@@ -894,7 +894,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor sit er" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vV-o8-MMc">
-                                                    <rect key="frame" x="179" y="92" width="131" height="101"/>
+                                                    <rect key="frame" x="179" y="92" width="129" height="99"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
