@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SfT-p1-VOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2471" y="1007"/>
+            <point key="canvasLocation" x="-2297" y="690"/>
         </scene>
         <!--View Controller Equipements List-->
         <scene sceneID="cvG-Ly-GAI">
@@ -295,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFj-01-cdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1529" y="1007"/>
+            <point key="canvasLocation" x="-1531" y="700"/>
         </scene>
         <!--View Controller Sport List-->
         <scene sceneID="0LP-ga-GBB">
@@ -374,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlB-no-Qv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-275" y="1007"/>
+            <point key="canvasLocation" x="-331" y="743"/>
         </scene>
         <!--View Controller Home-->
         <scene sceneID="yhG-WY-sTo">
@@ -659,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1395" y="-1214"/>
+            <point key="canvasLocation" x="-1478" y="-920"/>
         </scene>
         <!--View Controller Assoc Equipements-->
         <scene sceneID="NqB-SM-sqy">
@@ -706,7 +706,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zd9-rF-wPw" id="F7C-bT-LU9">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="137.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePz-mc-rLZ">
@@ -812,7 +812,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOW-t4-5oa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-527" y="-1214"/>
+            <point key="canvasLocation" x="-799" y="-920"/>
         </scene>
         <!--View Controller Trace List-->
         <scene sceneID="96s-dU-gVW">
@@ -861,7 +861,7 @@
                                         <rect key="frame" x="0.0" y="72" width="320" height="221"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3IQ-6K-L4z" id="Wbb-s8-eYT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="220.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="221"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAh-ni-YyU">
@@ -922,7 +922,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzS-yq-h7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="05V-gt-ltN"/>
             </objects>
-            <point key="canvasLocation" x="111" y="-342"/>
+            <point key="canvasLocation" x="-278" y="-113"/>
         </scene>
         <!--Detail Trace Controller-->
         <scene sceneID="Tnd-qC-Bil">
@@ -940,7 +940,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMe-qL-95h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="-336"/>
+            <point key="canvasLocation" x="491" y="-113"/>
         </scene>
     </scenes>
     <resources>
@@ -950,8 +950,8 @@
         <image name="voir.png" width="211" height="211"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="M41-2l-xin"/>
-        <segue reference="G6E-WY-Rk6"/>
+        <segue reference="umE-Sb-b9w"/>
+        <segue reference="mEQ-BA-Yb2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
